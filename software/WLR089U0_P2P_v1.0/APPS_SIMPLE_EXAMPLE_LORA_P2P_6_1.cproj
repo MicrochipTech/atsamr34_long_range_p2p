@@ -1,0 +1,1635 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+	<PropertyGroup>
+		<SchemaVersion>2.0</SchemaVersion>
+		<ProjectVersion>6.1</ProjectVersion>
+		<ProjectGuid>fec441e7-177d-317e-abe9-48ead07d1331</ProjectGuid>
+		<Name>$(MSBuildProjectName)</Name>
+		<AssemblyName>$(MSBuildProjectName)</AssemblyName>
+		<RootNamespace>$(MSBuildProjectName)</RootNamespace>
+		<AsfFrameworkConfig>
+			<framework-data>
+				<options>
+					<option id="common.boards" value="Add" config="" content-id="Atmel.ASF"/>
+					<option id="common.utils" value="Add" config="" content-id="Atmel.ASF"/>
+					<option id="common2.services.gfx_mono" value="Add" config="" content-id="Atmel.ASF"/>
+					<option id="common2.services.gfx_mono.font" value="Add" config="" content-id="Atmel.ASF"/>
+					<option id="common2.services.gfx_mono.spinctrl" value="Add" config="" content-id="Atmel.ASF"/>
+					<option id="config.thirdparty.wireless.miwi_lora.services.pds" value="Add" config="enable" content-id="Atmel.ASF"/>
+					<option id="config.thirdparty.wireless.miwi_lora.services.pds.pdstype" value="Add" config="wearleveling" content-id="Atmel.ASF"/>
+					<option id="sam0.drivers.nvm" value="Add" config="" content-id="Atmel.ASF"/>
+					<option id="sam0.drivers.port" value="Add" config="" content-id="Atmel.ASF"/>
+					<option id="sam0.drivers.rtc" value="Add" config="count_callback" content-id="Atmel.ASF"/>
+					<option id="sam0.drivers.sercom.i2c.master" value="Add" config="polled" content-id="Atmel.ASF"/>
+					<option id="sam0.utils.cmsis.samr34.source.template" value="Add" config="" content-id="Atmel.ASF"/>
+					<option id="thirdparty.wireless.addons.sio2host" value="Add" config="uart" content-id="Atmel.ASF"/>
+					<option id="thirdparty.wireless.common_services.sleep_mgr" value="Add" config="" content-id="Atmel.ASF"/>
+					<option id="thirdparty.wireless.miwi_lora" value="Add" config="" content-id="Atmel.ASF"/>
+					<option id="thirdparty.wireless.miwi_lora.apps.simple_example_lora_p2p" value="Add" config="" content-id="Atmel.ASF"/>
+					<option id="thirdparty.wireless.miwi_lora.include" value="Add" config="" content-id="Atmel.ASF"/>
+					<option id="thirdparty.wireless.miwi_lora.services.pds.linker_scripts" value="Add" config="" content-id="Atmel.ASF"/>
+					<option id="thirdparty.wireless.miwi_lora.source.sys" value="Add" config="" content-id="Atmel.ASF"/>
+					<option id="thirdparty.wireless.services.nvm" value="Add" config="" content-id="Atmel.ASF"/>
+				</options>
+				<configurations>
+					<configuration key="common2.services.gfx_mono.display" value="ug_2832hsweg04" default="ug_2832hsweg04" content-id="Atmel.ASF"/>
+					<configuration key="config.compiler.armgcc.optimization" value="high" default="high" content-id="Atmel.ASF"/>
+					<configuration key="config.sam0.drivers.sercom.usart" value="callback" default="callback" content-id="Atmel.ASF"/>
+					<configuration key="config.thirdparty.wireless.miwi_lora.source.mimac.phy.ext" value="sx1276" default="sx1276" content-id="Atmel.ASF"/>
+					<configuration key="config.thirdparty.wireless.miwi_lora.source" value="miwi_p2p" default="miwi_p2p" content-id="Atmel.ASF"/>
+					<configuration key="config.sam0.drivers.sercom.spi" value="polled" default="polled" content-id="Atmel.ASF"/>
+					<configuration key="config.sam0.drivers.sercom.i2c.master" value="polled" default="polled" content-id="Atmel.ASF"/>
+				</configurations>
+				<files>
+					<file path="src/ASF/common2/components/display/ssd1306/ssd1306.c" source="common2/components/display/ssd1306/ssd1306.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common2/components/display/ssd1306/ssd1306.h" source="common2/components/display/ssd1306/ssd1306.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common2/services/delay/delay.h" source="common2/services/delay/delay.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common2/services/delay/sam0/systick_counter.c" source="common2/services/delay/sam0/systick_counter.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common2/services/delay/sam0/systick_counter.h" source="common2/services/delay/sam0/systick_counter.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common2/services/gfx_mono/docsrc/gfx_mono_overview.png" source="common2/services/gfx_mono/docsrc/gfx_mono_overview.png" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common2/services/gfx_mono/gfx_mono.h" source="common2/services/gfx_mono/gfx_mono.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common2/services/gfx_mono/gfx_mono_framebuffer.c" source="common2/services/gfx_mono/gfx_mono_framebuffer.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common2/services/gfx_mono/gfx_mono_framebuffer.h" source="common2/services/gfx_mono/gfx_mono_framebuffer.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common2/services/gfx_mono/gfx_mono_generic.c" source="common2/services/gfx_mono/gfx_mono_generic.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common2/services/gfx_mono/gfx_mono_generic.h" source="common2/services/gfx_mono/gfx_mono_generic.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common2/services/gfx_mono/gfx_mono_spinctrl.c" source="common2/services/gfx_mono/gfx_mono_spinctrl.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common2/services/gfx_mono/gfx_mono_spinctrl.h" source="common2/services/gfx_mono/gfx_mono_spinctrl.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common2/services/gfx_mono/gfx_mono_text.c" source="common2/services/gfx_mono/gfx_mono_text.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common2/services/gfx_mono/gfx_mono_text.h" source="common2/services/gfx_mono/gfx_mono_text.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common2/services/gfx_mono/gfx_mono_ug_2832hsweg04.c" source="common2/services/gfx_mono/gfx_mono_ug_2832hsweg04.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common2/services/gfx_mono/gfx_mono_ug_2832hsweg04.h" source="common2/services/gfx_mono/gfx_mono_ug_2832hsweg04.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common2/services/gfx_mono/sysfont.c" source="common2/services/gfx_mono/sysfont.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common2/services/gfx_mono/sysfont.h" source="common2/services/gfx_mono/sysfont.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common2/services/gfx_mono/tools/bitmap.py" source="common2/services/gfx_mono/tools/bitmap.py" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common2/services/gfx_mono/tools/dump_display_over_serial.py" source="common2/services/gfx_mono/tools/dump_display_over_serial.py" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common2/services/gfx_mono/tools/readme.txt" source="common2/services/gfx_mono/tools/readme.txt" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common/boards/board.h" source="common/boards/board.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common/services/serial/sam0_usart/usart_serial.h" source="common/services/serial/sam0_usart/usart_serial.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common/services/serial/serial.h" source="common/services/serial/serial.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common/utils/interrupt.h" source="common/utils/interrupt.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common/utils/interrupt/interrupt_sam_nvic.c" source="common/utils/interrupt/interrupt_sam_nvic.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common/utils/interrupt/interrupt_sam_nvic.h" source="common/utils/interrupt/interrupt_sam_nvic.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/common/utils/parts.h" source="common/utils/parts.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/boards/samr34_xplained_pro/board_init.c" source="sam0/boards/samr34_xplained_pro/board_init.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/boards/samr34_xplained_pro/samr34_xplained_pro.h" source="sam0/boards/samr34_xplained_pro/samr34_xplained_pro.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/aes/aes.c" source="sam0/drivers/aes/aes.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/aes/aes.h" source="sam0/drivers/aes/aes.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/aes/aes_callback.c" source="sam0/drivers/aes/aes_callback.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/aes/aes_callback.h" source="sam0/drivers/aes/aes_callback.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/extint/extint.h" source="sam0/drivers/extint/extint.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/extint/extint_callback.c" source="sam0/drivers/extint/extint_callback.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/extint/extint_callback.h" source="sam0/drivers/extint/extint_callback.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/extint/extint_sam_l_c/extint.c" source="sam0/drivers/extint/extint_sam_l_c/extint.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/nvm/nvm.c" source="sam0/drivers/nvm/nvm.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/nvm/nvm.h" source="sam0/drivers/nvm/nvm.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/nvm/quick_start_basic/qs_nvm_basic.h" source="sam0/drivers/nvm/quick_start_basic/qs_nvm_basic.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/port/port.c" source="sam0/drivers/port/port.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/port/port.h" source="sam0/drivers/port/port.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/port/quick_start/qs_port_basic.h" source="sam0/drivers/port/quick_start/qs_port_basic.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/rtc/rtc_count.h" source="sam0/drivers/rtc/rtc_count.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/rtc/rtc_count_interrupt.h" source="sam0/drivers/rtc/rtc_count_interrupt.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/rtc/rtc_sam_l_c/rtc_count.c" source="sam0/drivers/rtc/rtc_sam_l_c/rtc_count.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/rtc/rtc_sam_l_c/rtc_count_interrupt.c" source="sam0/drivers/rtc/rtc_sam_l_c/rtc_count_interrupt.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/rtc/rtc_tamper.h" source="sam0/drivers/rtc/rtc_tamper.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/i2c/i2c_common.h" source="sam0/drivers/sercom/i2c/i2c_common.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/i2c/i2c_master.h" source="sam0/drivers/sercom/i2c/i2c_master.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/i2c/i2c_sam0/i2c_master.c" source="sam0/drivers/sercom/i2c/i2c_sam0/i2c_master.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/i2c/quick_start_master/qs_i2c_master_basic_use.h" source="sam0/drivers/sercom/i2c/quick_start_master/qs_i2c_master_basic_use.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/i2c/quick_start_master_dma/qs_i2c_master_dma.h" source="sam0/drivers/sercom/i2c/quick_start_master_dma/qs_i2c_master_dma.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/sercom.c" source="sam0/drivers/sercom/sercom.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/sercom.h" source="sam0/drivers/sercom/sercom.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/sercom_interrupt.c" source="sam0/drivers/sercom/sercom_interrupt.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/sercom_interrupt.h" source="sam0/drivers/sercom/sercom_interrupt.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/sercom_pinout.h" source="sam0/drivers/sercom/sercom_pinout.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/spi/quick_start_dma/qs_spi_dma_use.h" source="sam0/drivers/sercom/spi/quick_start_dma/qs_spi_dma_use.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/spi/quick_start_master/qs_spi_master_basic.h" source="sam0/drivers/sercom/spi/quick_start_master/qs_spi_master_basic.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/spi/quick_start_slave/qs_spi_slave_basic.h" source="sam0/drivers/sercom/spi/quick_start_slave/qs_spi_slave_basic.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/spi/spi.c" source="sam0/drivers/sercom/spi/spi.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/spi/spi.h" source="sam0/drivers/sercom/spi/spi.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/usart/quick_start/qs_usart_basic_use.h" source="sam0/drivers/sercom/usart/quick_start/qs_usart_basic_use.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/usart/quick_start_callback/qs_usart_callback.h" source="sam0/drivers/sercom/usart/quick_start_callback/qs_usart_callback.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/usart/quick_start_dma/qs_usart_dma_use.h" source="sam0/drivers/sercom/usart/quick_start_dma/qs_usart_dma_use.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/usart/quick_start_lin/qs_lin.h" source="sam0/drivers/sercom/usart/quick_start_lin/qs_lin.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/usart/usart.c" source="sam0/drivers/sercom/usart/usart.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/usart/usart.h" source="sam0/drivers/sercom/usart/usart.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/usart/usart_interrupt.c" source="sam0/drivers/sercom/usart/usart_interrupt.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/sercom/usart/usart_interrupt.h" source="sam0/drivers/sercom/usart/usart_interrupt.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/system/clock/clock.h" source="sam0/drivers/system/clock/clock.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/system/clock/clock_samr34/clock.c" source="sam0/drivers/system/clock/clock_samr34/clock.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/system/clock/clock_samr34/clock_config_check.h" source="sam0/drivers/system/clock/clock_samr34/clock_config_check.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/system/clock/clock_samr34/clock_feature.h" source="sam0/drivers/system/clock/clock_samr34/clock_feature.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/system/clock/clock_samr34/gclk.c" source="sam0/drivers/system/clock/clock_samr34/gclk.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/system/clock/gclk.h" source="sam0/drivers/system/clock/gclk.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/system/interrupt/system_interrupt.c" source="sam0/drivers/system/interrupt/system_interrupt.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/system/interrupt/system_interrupt.h" source="sam0/drivers/system/interrupt/system_interrupt.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/system/interrupt/system_interrupt_samr34/system_interrupt_features.h" source="sam0/drivers/system/interrupt/system_interrupt_samr34/system_interrupt_features.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/system/pinmux/pinmux.c" source="sam0/drivers/system/pinmux/pinmux.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/system/pinmux/pinmux.h" source="sam0/drivers/system/pinmux/pinmux.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/system/pinmux/quick_start/qs_pinmux_basic.h" source="sam0/drivers/system/pinmux/quick_start/qs_pinmux_basic.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/system/power/power_sam_l/power.h" source="sam0/drivers/system/power/power_sam_l/power.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/system/reset/reset_sam_l/reset.h" source="sam0/drivers/system/reset/reset_sam_l/reset.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/system/system.c" source="sam0/drivers/system/system.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/system/system.h" source="sam0/drivers/system/system.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/tc/tc.h" source="sam0/drivers/tc/tc.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/tc/tc_interrupt.c" source="sam0/drivers/tc/tc_interrupt.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/tc/tc_interrupt.h" source="sam0/drivers/tc/tc_interrupt.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/drivers/tc/tc_sam_l_c/tc.c" source="sam0/drivers/tc/tc_sam_l_c/tc.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/ac.h" source="sam0/utils/cmsis/samr34/include/component/ac.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/adc.h" source="sam0/utils/cmsis/samr34/include/component/adc.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/aes.h" source="sam0/utils/cmsis/samr34/include/component/aes.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/ccl.h" source="sam0/utils/cmsis/samr34/include/component/ccl.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/dac.h" source="sam0/utils/cmsis/samr34/include/component/dac.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/dmac.h" source="sam0/utils/cmsis/samr34/include/component/dmac.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/dsu.h" source="sam0/utils/cmsis/samr34/include/component/dsu.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/eic.h" source="sam0/utils/cmsis/samr34/include/component/eic.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/evsys.h" source="sam0/utils/cmsis/samr34/include/component/evsys.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/gclk.h" source="sam0/utils/cmsis/samr34/include/component/gclk.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/mclk.h" source="sam0/utils/cmsis/samr34/include/component/mclk.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/mtb.h" source="sam0/utils/cmsis/samr34/include/component/mtb.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/nvmctrl.h" source="sam0/utils/cmsis/samr34/include/component/nvmctrl.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/osc32kctrl.h" source="sam0/utils/cmsis/samr34/include/component/osc32kctrl.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/oscctrl.h" source="sam0/utils/cmsis/samr34/include/component/oscctrl.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/pac.h" source="sam0/utils/cmsis/samr34/include/component/pac.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/pm.h" source="sam0/utils/cmsis/samr34/include/component/pm.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/port.h" source="sam0/utils/cmsis/samr34/include/component/port.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/rstc.h" source="sam0/utils/cmsis/samr34/include/component/rstc.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/rtc.h" source="sam0/utils/cmsis/samr34/include/component/rtc.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/sercom.h" source="sam0/utils/cmsis/samr34/include/component/sercom.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/supc.h" source="sam0/utils/cmsis/samr34/include/component/supc.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/tal.h" source="sam0/utils/cmsis/samr34/include/component/tal.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/tc.h" source="sam0/utils/cmsis/samr34/include/component/tc.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/tcc.h" source="sam0/utils/cmsis/samr34/include/component/tcc.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/trng.h" source="sam0/utils/cmsis/samr34/include/component/trng.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/usb.h" source="sam0/utils/cmsis/samr34/include/component/usb.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/component/wdt.h" source="sam0/utils/cmsis/samr34/include/component/wdt.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/ac.h" source="sam0/utils/cmsis/samr34/include/instance/ac.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/adc.h" source="sam0/utils/cmsis/samr34/include/instance/adc.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/aes.h" source="sam0/utils/cmsis/samr34/include/instance/aes.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/ccl.h" source="sam0/utils/cmsis/samr34/include/instance/ccl.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/dac.h" source="sam0/utils/cmsis/samr34/include/instance/dac.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/dmac.h" source="sam0/utils/cmsis/samr34/include/instance/dmac.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/dsu.h" source="sam0/utils/cmsis/samr34/include/instance/dsu.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/eic.h" source="sam0/utils/cmsis/samr34/include/instance/eic.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/evsys.h" source="sam0/utils/cmsis/samr34/include/instance/evsys.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/gclk.h" source="sam0/utils/cmsis/samr34/include/instance/gclk.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/mclk.h" source="sam0/utils/cmsis/samr34/include/instance/mclk.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/mtb.h" source="sam0/utils/cmsis/samr34/include/instance/mtb.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/nvmctrl.h" source="sam0/utils/cmsis/samr34/include/instance/nvmctrl.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/osc32kctrl.h" source="sam0/utils/cmsis/samr34/include/instance/osc32kctrl.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/oscctrl.h" source="sam0/utils/cmsis/samr34/include/instance/oscctrl.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/pac.h" source="sam0/utils/cmsis/samr34/include/instance/pac.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/pm.h" source="sam0/utils/cmsis/samr34/include/instance/pm.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/port.h" source="sam0/utils/cmsis/samr34/include/instance/port.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/rstc.h" source="sam0/utils/cmsis/samr34/include/instance/rstc.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/rtc.h" source="sam0/utils/cmsis/samr34/include/instance/rtc.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/sercom0.h" source="sam0/utils/cmsis/samr34/include/instance/sercom0.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/sercom1.h" source="sam0/utils/cmsis/samr34/include/instance/sercom1.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/sercom2.h" source="sam0/utils/cmsis/samr34/include/instance/sercom2.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/sercom3.h" source="sam0/utils/cmsis/samr34/include/instance/sercom3.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/sercom4.h" source="sam0/utils/cmsis/samr34/include/instance/sercom4.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/sercom5.h" source="sam0/utils/cmsis/samr34/include/instance/sercom5.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/supc.h" source="sam0/utils/cmsis/samr34/include/instance/supc.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/tal.h" source="sam0/utils/cmsis/samr34/include/instance/tal.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/tc0.h" source="sam0/utils/cmsis/samr34/include/instance/tc0.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/tc1.h" source="sam0/utils/cmsis/samr34/include/instance/tc1.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/tc2.h" source="sam0/utils/cmsis/samr34/include/instance/tc2.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/tc3.h" source="sam0/utils/cmsis/samr34/include/instance/tc3.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/tc4.h" source="sam0/utils/cmsis/samr34/include/instance/tc4.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/tcc0.h" source="sam0/utils/cmsis/samr34/include/instance/tcc0.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/tcc1.h" source="sam0/utils/cmsis/samr34/include/instance/tcc1.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/tcc2.h" source="sam0/utils/cmsis/samr34/include/instance/tcc2.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/trng.h" source="sam0/utils/cmsis/samr34/include/instance/trng.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/usb.h" source="sam0/utils/cmsis/samr34/include/instance/usb.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/instance/wdt.h" source="sam0/utils/cmsis/samr34/include/instance/wdt.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/pio/samr34j16b.h" source="sam0/utils/cmsis/samr34/include/pio/samr34j16b.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/pio/samr34j17b.h" source="sam0/utils/cmsis/samr34/include/pio/samr34j17b.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/pio/samr34j18b.h" source="sam0/utils/cmsis/samr34/include/pio/samr34j18b.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/samr34.h" source="sam0/utils/cmsis/samr34/include/samr34.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/samr34j16b.h" source="sam0/utils/cmsis/samr34/include/samr34j16b.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/samr34j17b.h" source="sam0/utils/cmsis/samr34/include/samr34j17b.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/include/samr34j18b.h" source="sam0/utils/cmsis/samr34/include/samr34j18b.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/source/gcc/startup_samr34.c" source="sam0/utils/cmsis/samr34/source/gcc/startup_samr34.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/source/system_samr34.c" source="sam0/utils/cmsis/samr34/source/system_samr34.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/cmsis/samr34/source/system_samr34.h" source="sam0/utils/cmsis/samr34/source/system_samr34.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/compiler.h" source="sam0/utils/compiler.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/header_files/io.h" source="sam0/utils/header_files/io.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/make/Makefile.sam.in" source="sam0/utils/make/Makefile.sam.in" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/preprocessor/mrecursion.h" source="sam0/utils/preprocessor/mrecursion.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/preprocessor/mrepeat.h" source="sam0/utils/preprocessor/mrepeat.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/preprocessor/preprocessor.h" source="sam0/utils/preprocessor/preprocessor.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/preprocessor/stringz.h" source="sam0/utils/preprocessor/stringz.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/preprocessor/tpaste.h" source="sam0/utils/preprocessor/tpaste.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/status_codes.h" source="sam0/utils/status_codes.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/stdio/read.c" source="sam0/utils/stdio/read.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/stdio/stdio_serial/stdio_serial.h" source="sam0/utils/stdio/stdio_serial/stdio_serial.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/stdio/write.c" source="sam0/utils/stdio/write.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/sam0/utils/syscalls/gcc/syscalls.c" source="sam0/utils/syscalls/gcc/syscalls.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/CMSIS/ATMEL-disclaimer.txt" source="thirdparty/CMSIS/ATMEL-disclaimer.txt" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/CMSIS/CMSIS_END_USER_LICENCE_AGREEMENT.pdf" source="thirdparty/CMSIS/CMSIS_END_USER_LICENCE_AGREEMENT.pdf" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/CMSIS/Include/arm_math.h" source="thirdparty/CMSIS/Include/arm_math.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/CMSIS/Include/core_cm0plus.h" source="thirdparty/CMSIS/Include/core_cm0plus.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/CMSIS/Include/core_cmFunc.h" source="thirdparty/CMSIS/Include/core_cmFunc.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/CMSIS/Include/core_cmInstr.h" source="thirdparty/CMSIS/Include/core_cmInstr.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/CMSIS/Lib/GCC/libarm_cortexM0l_math.a" source="thirdparty/CMSIS/Lib/GCC/libarm_cortexM0l_math.a" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/CMSIS/Lib/license.txt" source="thirdparty/CMSIS/Lib/license.txt" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/CMSIS/README.txt" source="thirdparty/CMSIS/README.txt" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/CMSIS/license.txt" source="thirdparty/CMSIS/license.txt" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/EULA.txt" source="thirdparty/wireless/EULA.txt" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/demo_output.c" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/demo_output.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/demo_output.h" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/demo_output.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/main.c" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/main.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/config/miwi_config.h" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/miwi_config.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/config/miwi_config_p2p.h" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/miwi_config_p2p.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/p2p_demo.c" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/p2p_demo.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/p2p_demo.h" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/p2p_demo.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/config/conf_board.h" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/samr34_xplained_pro/conf_board.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/config/conf_clocks.h" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/samr34_xplained_pro/conf_clocks.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/config/conf_extint.h" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/samr34_xplained_pro/conf_extint.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/config/conf_hw_timer.h" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/samr34_xplained_pro/conf_hw_timer.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/config/conf_nvm.h" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/samr34_xplained_pro/conf_nvm.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/config/conf_pmm.h" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/samr34_xplained_pro/conf_pmm.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/config/conf_regparams.h" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/samr34_xplained_pro/conf_regparams.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/config/conf_rtc.h" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/samr34_xplained_pro/conf_rtc.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/config/conf_sio2host.h" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/samr34_xplained_pro/conf_sio2host.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/config/conf_spi.h" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/samr34_xplained_pro/conf_spi.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/config/conf_spinctrl.h" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/samr34_xplained_pro/conf_spinctrl.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/config/conf_ssd1306.h" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/samr34_xplained_pro/conf_ssd1306.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/config/conf_sw_timer.h" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/samr34_xplained_pro/conf_sw_timer.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/config/conf_sysfont.h" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/samr34_xplained_pro/conf_sysfont.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/config/conf_trx_access.h" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/samr34_xplained_pro/conf_trx_access.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/task.c" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/task.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/task.h" source="thirdparty/wireless/LoRa_P2P/apps/simple_example_p2p/task.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/include/miwi_api.h" source="thirdparty/wireless/LoRa_P2P/include/miwi_api.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/license.txt" source="thirdparty/wireless/LoRa_P2P/license.txt" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/lcd/lcd.c" source="thirdparty/wireless/LoRa_P2P/services/lcd/lcd.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/lcd/lcd.h" source="thirdparty/wireless/LoRa_P2P/services/lcd/lcd.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/D_Nv.h" source="thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/D_Nv.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/D_Nv_Bindings.h" source="thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/D_Nv_Bindings.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/D_Nv_Init.h" source="thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/D_Nv_Init.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/External/D_XNv.h" source="thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/External/D_XNv.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/External/D_XNv_Bindings.h" source="thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/External/D_XNv_Bindings.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/External/D_XNv_Init.h" source="thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/External/D_XNv_Init.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/External/S_XNv.h" source="thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/External/S_XNv.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/External/S_XNv_Bindings.h" source="thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/External/S_XNv_Bindings.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/External/S_XNv_Init.h" source="thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/External/S_XNv_Init.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/S_Nv.h" source="thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/S_Nv.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/S_Nv_Bindings.h" source="thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/S_Nv_Bindings.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/S_Nv_Init.h" source="thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/S_Nv_Init.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/S_Nv_Internal.h" source="thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/S_Nv_Internal.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/pdsDataServer.h" source="thirdparty/wireless/LoRa_P2P/services/pds/inc/pdsDataServer.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/pdsMemIds.h" source="thirdparty/wireless/LoRa_P2P/services/pds/inc/pdsMemIds.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/wl/wlPdsBindings.h" source="thirdparty/wireless/LoRa_P2P/services/pds/inc/wl/wlPdsBindings.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/wl/wlPdsMemIds.h" source="thirdparty/wireless/LoRa_P2P/services/pds/inc/wl/wlPdsMemIds.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/wl/wlPdsTaskManager.h" source="thirdparty/wireless/LoRa_P2P/services/pds/inc/wl/wlPdsTaskManager.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/wl/wlPdsTypes.h" source="thirdparty/wireless/LoRa_P2P/services/pds/inc/wl/wlPdsTypes.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/wl/wlPdsTypesConverter.h" source="thirdparty/wireless/LoRa_P2P/services/pds/inc/wl/wlPdsTypesConverter.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/src/nv/D_Nv.c" source="thirdparty/wireless/LoRa_P2P/services/pds/src/nv/D_Nv.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/src/nv/External/D_XNv-SamR21.c" source="thirdparty/wireless/LoRa_P2P/services/pds/src/nv/External/D_XNv-SamR21.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/src/nv/External/S_Nv-External.c" source="thirdparty/wireless/LoRa_P2P/services/pds/src/nv/External/S_Nv-External.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/src/nv/External/S_XNv.c" source="thirdparty/wireless/LoRa_P2P/services/pds/src/nv/External/S_XNv.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/src/nv/S_Nv-SamR21.c" source="thirdparty/wireless/LoRa_P2P/services/pds/src/nv/S_Nv-SamR21.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/src/wl/linkerscripts/samr34/gcc/samr34j18b_flash.ld" source="thirdparty/wireless/LoRa_P2P/services/pds/src/wl/linkerscripts/samr34/gcc/samr34j18b_flash.ld" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/src/wl/wlPdsDataServer.c" source="thirdparty/wireless/LoRa_P2P/services/pds/src/wl/wlPdsDataServer.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/src/wl/wlPdsInit.c" source="thirdparty/wireless/LoRa_P2P/services/pds/src/wl/wlPdsInit.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/src/wl/wlPdsTaskManager.c" source="thirdparty/wireless/LoRa_P2P/services/pds/src/wl/wlPdsTaskManager.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/src/wl/wlPdsTypesConverter.c" source="thirdparty/wireless/LoRa_P2P/services/pds/src/wl/wlPdsTypesConverter.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/source/mimac/mimac.c" source="thirdparty/wireless/LoRa_P2P/source/mimac/mimac.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/source/mimac/mimac.h" source="thirdparty/wireless/LoRa_P2P/source/mimac/mimac.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/source/mimac/phy/phy.h" source="thirdparty/wireless/LoRa_P2P/source/mimac/phy/phy.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/source/mimac/phy/sx1276/phy.c" source="thirdparty/wireless/LoRa_P2P/source/mimac/phy/sx1276/phy.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/source/miwi_p2p_star/miwi_nvm.h" source="thirdparty/wireless/LoRa_P2P/source/miwi_p2p_star/miwi_nvm.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/source/miwi_p2p_star/miwi_p2p.c" source="thirdparty/wireless/LoRa_P2P/source/miwi_p2p_star/miwi_p2p.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/source/miwi_p2p_star/miwi_p2p.h" source="thirdparty/wireless/LoRa_P2P/source/miwi_p2p_star/miwi_p2p.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/source/miwi_p2p_star/miwi_p2p_pds.c" source="thirdparty/wireless/LoRa_P2P/source/miwi_p2p_star/miwi_p2p_pds.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/source/sys/mimem.c" source="thirdparty/wireless/LoRa_P2P/source/sys/mimem.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/source/sys/mimem.h" source="thirdparty/wireless/LoRa_P2P/source/sys/mimem.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/source/sys/miqueue.c" source="thirdparty/wireless/LoRa_P2P/source/sys/miqueue.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/source/sys/miqueue.h" source="thirdparty/wireless/LoRa_P2P/source/sys/miqueue.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/source/sys/sysTimer.c" source="thirdparty/wireless/LoRa_P2P/source/sys/sysTimer.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/LoRa_P2P/source/sys/sysTimer.h" source="thirdparty/wireless/LoRa_P2P/source/sys/sysTimer.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.c" source="thirdparty/wireless/addons/sio2host/uart/sio2host.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/addons/sio2host/uart/sio2host.h" source="thirdparty/wireless/addons/sio2host/uart/sio2host.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/hal/inc/atomic.h" source="thirdparty/wireless/lorawan/hal/inc/atomic.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/hal/inc/radio_driver_hal.h" source="thirdparty/wireless/lorawan/hal/inc/radio_driver_hal.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/hal/inc/sleep.h" source="thirdparty/wireless/lorawan/hal/inc/sleep.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/hal/inc/sleep_timer.h" source="thirdparty/wireless/lorawan/hal/inc/sleep_timer.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/hal/inc/sys.h" source="thirdparty/wireless/lorawan/hal/inc/sys.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/hal/src/radio_driver_hal.c" source="thirdparty/wireless/lorawan/hal/src/radio_driver_hal.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/hal/src/sleep/sam0/sleep.c" source="thirdparty/wireless/lorawan/hal/src/sleep/sam0/sleep.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/hal/src/sleep_timer/sam0/sleep_timer.c" source="thirdparty/wireless/lorawan/hal/src/sleep_timer/sam0/sleep_timer.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/hal/src/sys.c" source="thirdparty/wireless/lorawan/hal/src/sys.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/inc/conf_stack.h" source="thirdparty/wireless/lorawan/inc/conf_stack.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/inc/stack_common.h" source="thirdparty/wireless/lorawan/inc/stack_common.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/libgen/sam0/gcc/libLORAWAN_LIBGEN.a" source="thirdparty/wireless/lorawan/libgen/sam0/gcc/libLORAWAN_LIBGEN.a" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/mac/inc/lorawan.h" source="thirdparty/wireless/lorawan/mac/inc/lorawan.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/pmm/inc/pmm.h" source="thirdparty/wireless/lorawan/pmm/inc/pmm.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/pmm/src/pmm.c" source="thirdparty/wireless/lorawan/pmm/src/pmm.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/regparams/inc/lorawan_reg_params.h" source="thirdparty/wireless/lorawan/regparams/inc/lorawan_reg_params.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/regparams/multiband/inc/lorawan_multiband.h" source="thirdparty/wireless/lorawan/regparams/multiband/inc/lorawan_multiband.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_as.c" source="thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_as.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_au.c" source="thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_au.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_eu.c" source="thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_eu.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_in.c" source="thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_in.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_jp.c" source="thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_jp.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_kr.c" source="thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_kr.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_na.c" source="thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_mband_na.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_multiband.c" source="thirdparty/wireless/lorawan/regparams/multiband/src/lorawan_multiband.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/services/aes/inc/aes_def.h" source="thirdparty/wireless/lorawan/services/aes/inc/aes_def.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/services/aes/inc/aes_engine.h" source="thirdparty/wireless/lorawan/services/aes/inc/aes_engine.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/services/aes/src/hw/sam0/aes_engine.c" source="thirdparty/wireless/lorawan/services/aes/src/hw/sam0/aes_engine.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/services/sw_timer/inc/sw_timer.h" source="thirdparty/wireless/lorawan/services/sw_timer/inc/sw_timer.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/services/sw_timer/src/sw_timer.c" source="thirdparty/wireless/lorawan/services/sw_timer/src/sw_timer.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/sys/inc/system_assert.h" source="thirdparty/wireless/lorawan/sys/inc/system_assert.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/sys/inc/system_init.h" source="thirdparty/wireless/lorawan/sys/inc/system_init.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/sys/inc/system_low_power.h" source="thirdparty/wireless/lorawan/sys/inc/system_low_power.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/sys/inc/system_task_manager.h" source="thirdparty/wireless/lorawan/sys/inc/system_task_manager.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/sys/src/system_assert.c" source="thirdparty/wireless/lorawan/sys/src/system_assert.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/sys/src/system_init.c" source="thirdparty/wireless/lorawan/sys/src/system_init.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/sys/src/system_low_power.c" source="thirdparty/wireless/lorawan/sys/src/system_low_power.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/sys/src/system_task_manager.c" source="thirdparty/wireless/lorawan/sys/src/system_task_manager.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/tal/inc/radio_get_set.h" source="thirdparty/wireless/lorawan/tal/inc/radio_get_set.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/tal/inc/radio_interface.h" source="thirdparty/wireless/lorawan/tal/inc/radio_interface.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/tal/inc/radio_lbt.h" source="thirdparty/wireless/lorawan/tal/inc/radio_lbt.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/tal/inc/radio_task_manager.h" source="thirdparty/wireless/lorawan/tal/inc/radio_task_manager.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/tal/inc/radio_transaction.h" source="thirdparty/wireless/lorawan/tal/inc/radio_transaction.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/tal/sx1276/inc/radio_driver_SX1276.h" source="thirdparty/wireless/lorawan/tal/sx1276/inc/radio_driver_SX1276.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/tal/sx1276/inc/radio_registers_SX1276.h" source="thirdparty/wireless/lorawan/tal/sx1276/inc/radio_registers_SX1276.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/lorawan/tal/sx1276/src/radio_driver_SX1276.c" source="thirdparty/wireless/lorawan/tal/sx1276/src/radio_driver_SX1276.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/services/common_hw_timer/common_hw_timer.h" source="thirdparty/wireless/services/common_hw_timer/common_hw_timer.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.c" source="thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.h" source="thirdparty/wireless/services/common_hw_timer/sam0/hw_timer.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib/libsam0_lib_hw_timer.a" source="thirdparty/wireless/services/common_hw_timer/sam0/lib/libsam0_lib_hw_timer.a" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/services/edbg_eui/edbg-eui.c" source="thirdparty/wireless/services/edbg_eui/edbg-eui.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/services/edbg_eui/edbg-eui.h" source="thirdparty/wireless/services/edbg_eui/edbg-eui.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/services/nvm/common_nvm.h" source="thirdparty/wireless/services/nvm/common_nvm.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/services/nvm/sam0/sam_nvm.c" source="thirdparty/wireless/services/nvm/sam0/sam_nvm.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/services/sal/at86rf2xx/src/sal.c" source="thirdparty/wireless/services/sal/at86rf2xx/src/sal.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/services/sal/inc/sal.h" source="thirdparty/wireless/services/sal/inc/sal.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/services/sal/inc/sal_generic.h" source="thirdparty/wireless/services/sal/inc/sal_generic.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/services/sal/inc/sal_types.h" source="thirdparty/wireless/services/sal/inc/sal_types.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/services/sleep_mgr/sam0/sleep_mgr.c" source="thirdparty/wireless/services/sleep_mgr/sam0/sleep_mgr.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/services/sleep_mgr/sleep_mgr.h" source="thirdparty/wireless/services/sleep_mgr/sleep_mgr.h" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/services/trx_access/trx_access_1.c" source="thirdparty/wireless/services/trx_access/trx_access_1.c" changed="False" content-id="Atmel.ASF"/>
+					<file path="src/ASF/thirdparty/wireless/services/trx_access/trx_access_1.h" source="thirdparty/wireless/services/trx_access/trx_access_1.h" changed="False" content-id="Atmel.ASF"/>
+				</files>
+				<dependencies>
+					<content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.45.0"/>
+				</dependencies>
+				<board id="board.samr34_xplained_pro" content-id="Atmel.ASF" config="" value="Add"/>
+				<project id="thirdparty.wireless.miwi_lora.apps.simple_example_lora_p2p.samr34_xplained_pro" content-id="Atmel.ASF" config="" value="Add"/>
+				<documentation help="http://asf.atmel.com/docs/3.45.0/thirdparty.wireless.miwi_lora.apps.simple_example_lora_p2p.samr34_xplained_pro/html/index.html"/>
+				<offline-documentation help=""/>
+			</framework-data>
+		</AsfFrameworkConfig>
+		<avrdevice>ATSAMR34J18B</avrdevice>
+		<avrdeviceseries>samr34</avrdeviceseries>
+		<Language>C</Language>
+		<ToolchainName>com.Atmel.ARMGCC</ToolchainName>
+		<ArmGccProjectExtensions/>
+		<OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+		<OutputFileName>$(MSBuildProjectName)</OutputFileName>
+		<OutputFileExtension>.elf</OutputFileExtension>
+		<OutputType>Executable</OutputType>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+		<ToolchainSettings>
+			<ArmGcc>
+				<armgcc.compiler.symbols.DefSymbols>
+					<ListValues>
+						<Value>ARM_MATH_CM0PLUS=true</Value>
+						<Value>AS_BAND=1</Value>
+						<Value>AU_BAND=1</Value>
+						<Value>BOARD=SAMR34_XPLAINED_PRO</Value>
+						<Value>CONF_PMM_ENABLE</Value>
+						<Value>ENABLE_NETWORK_FREEZER</Value>
+						<Value>EU_BAND=1</Value>
+						<Value>EXTINT_CALLBACK_MODE=true</Value>
+						<Value>GFX_MONO_UG_2832HSWEG04=1</Value>
+						<Value>I2C_MASTER_CALLBACK_MODE=false</Value>
+						<Value>IND_BAND=1</Value>
+						<Value>JPN_BAND=1</Value>
+						<Value>KR_BAND=1</Value>
+						<Value>NA_BAND=1</Value>
+						<Value>PDS_ENABLE_WEAR_LEVELING</Value>
+						<Value>PHY_SX1276</Value>
+						<Value>PROTOCOL_P2P</Value>
+						<Value>RTC_COUNT_ASYNC=true</Value>
+						<Value>SAL_TYPE=AT86RF2xx</Value>
+						<Value>SPI_CALLBACK_MODE=false</Value>
+						<Value>SYSTICK_MODE</Value>
+						<Value>TC_ASYNC=true</Value>
+						<Value>USART_CALLBACK_MODE=true</Value>
+						<Value>_DEBUG_=0</Value>
+						<Value>__SAMR34J18B__</Value>
+					</ListValues>
+				</armgcc.compiler.symbols.DefSymbols>
+				<armgcc.compiler.directories.IncludePaths>
+					<ListValues>
+						<Value>../src</Value>
+						<Value>../src/ASF/common/boards</Value>
+						<Value>../src/ASF/common/services/serial</Value>
+						<Value>../src/ASF/common/utils</Value>
+						<Value>../src/ASF/common2/components/display/ssd1306</Value>
+						<Value>../src/ASF/common2/services/delay</Value>
+						<Value>../src/ASF/common2/services/delay/sam0</Value>
+						<Value>../src/ASF/common2/services/gfx_mono</Value>
+						<Value>../src/ASF/sam0/boards</Value>
+						<Value>../src/ASF/sam0/boards/samr34_xplained_pro</Value>
+						<Value>../src/ASF/sam0/drivers/aes</Value>
+						<Value>../src/ASF/sam0/drivers/extint</Value>
+						<Value>../src/ASF/sam0/drivers/nvm</Value>
+						<Value>../src/ASF/sam0/drivers/port</Value>
+						<Value>../src/ASF/sam0/drivers/rtc</Value>
+						<Value>../src/ASF/sam0/drivers/sercom</Value>
+						<Value>../src/ASF/sam0/drivers/sercom/i2c</Value>
+						<Value>../src/ASF/sam0/drivers/sercom/spi</Value>
+						<Value>../src/ASF/sam0/drivers/sercom/usart</Value>
+						<Value>../src/ASF/sam0/drivers/system</Value>
+						<Value>../src/ASF/sam0/drivers/system/clock</Value>
+						<Value>../src/ASF/sam0/drivers/system/clock/clock_samr34</Value>
+						<Value>../src/ASF/sam0/drivers/system/interrupt</Value>
+						<Value>../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samr34</Value>
+						<Value>../src/ASF/sam0/drivers/system/pinmux</Value>
+						<Value>../src/ASF/sam0/drivers/system/power</Value>
+						<Value>../src/ASF/sam0/drivers/system/power/power_sam_l</Value>
+						<Value>../src/ASF/sam0/drivers/system/reset</Value>
+						<Value>../src/ASF/sam0/drivers/system/reset/reset_sam_l</Value>
+						<Value>../src/ASF/sam0/drivers/tc</Value>
+						<Value>../src/ASF/sam0/utils</Value>
+						<Value>../src/ASF/sam0/utils/cmsis/samr34/include</Value>
+						<Value>../src/ASF/sam0/utils/cmsis/samr34/source</Value>
+						<Value>../src/ASF/sam0/utils/header_files</Value>
+						<Value>../src/ASF/sam0/utils/preprocessor</Value>
+						<Value>../src/ASF/sam0/utils/stdio/stdio_serial</Value>
+						<Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+						<Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/include</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/lcd</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/External</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/wl</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/mimac</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/mimac/phy</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/miwi_p2p_star</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/sys</Value>
+						<Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/hal/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/mac/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/pmm/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/regparams/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/regparams/multiband/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/services/aes/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/services/sw_timer/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/sys/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/tal/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/tal/sx1276/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/common_hw_timer</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/edbg_eui</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/nvm</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/sal/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/sleep_mgr</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/trx_access</Value>
+						<Value>../src/config</Value>
+					</ListValues>
+				</armgcc.compiler.directories.IncludePaths>
+				<armgcc.assembler.general.IncludePaths>
+					<ListValues>
+						<Value>../src</Value>
+						<Value>../src/ASF/common/boards</Value>
+						<Value>../src/ASF/common/services/serial</Value>
+						<Value>../src/ASF/common/utils</Value>
+						<Value>../src/ASF/common2/components/display/ssd1306</Value>
+						<Value>../src/ASF/common2/services/delay</Value>
+						<Value>../src/ASF/common2/services/delay/sam0</Value>
+						<Value>../src/ASF/common2/services/gfx_mono</Value>
+						<Value>../src/ASF/sam0/boards</Value>
+						<Value>../src/ASF/sam0/boards/samr34_xplained_pro</Value>
+						<Value>../src/ASF/sam0/drivers/aes</Value>
+						<Value>../src/ASF/sam0/drivers/extint</Value>
+						<Value>../src/ASF/sam0/drivers/nvm</Value>
+						<Value>../src/ASF/sam0/drivers/port</Value>
+						<Value>../src/ASF/sam0/drivers/rtc</Value>
+						<Value>../src/ASF/sam0/drivers/sercom</Value>
+						<Value>../src/ASF/sam0/drivers/sercom/i2c</Value>
+						<Value>../src/ASF/sam0/drivers/sercom/spi</Value>
+						<Value>../src/ASF/sam0/drivers/sercom/usart</Value>
+						<Value>../src/ASF/sam0/drivers/system</Value>
+						<Value>../src/ASF/sam0/drivers/system/clock</Value>
+						<Value>../src/ASF/sam0/drivers/system/clock/clock_samr34</Value>
+						<Value>../src/ASF/sam0/drivers/system/interrupt</Value>
+						<Value>../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samr34</Value>
+						<Value>../src/ASF/sam0/drivers/system/pinmux</Value>
+						<Value>../src/ASF/sam0/drivers/system/power</Value>
+						<Value>../src/ASF/sam0/drivers/system/power/power_sam_l</Value>
+						<Value>../src/ASF/sam0/drivers/system/reset</Value>
+						<Value>../src/ASF/sam0/drivers/system/reset/reset_sam_l</Value>
+						<Value>../src/ASF/sam0/drivers/tc</Value>
+						<Value>../src/ASF/sam0/utils</Value>
+						<Value>../src/ASF/sam0/utils/cmsis/samr34/include</Value>
+						<Value>../src/ASF/sam0/utils/cmsis/samr34/source</Value>
+						<Value>../src/ASF/sam0/utils/header_files</Value>
+						<Value>../src/ASF/sam0/utils/preprocessor</Value>
+						<Value>../src/ASF/sam0/utils/stdio/stdio_serial</Value>
+						<Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+						<Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/include</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/lcd</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/External</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/wl</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/mimac</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/mimac/phy</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/miwi_p2p_star</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/sys</Value>
+						<Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/hal/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/mac/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/pmm/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/regparams/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/regparams/multiband/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/services/aes/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/services/sw_timer/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/sys/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/tal/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/tal/sx1276/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/common_hw_timer</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/edbg_eui</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/nvm</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/sal/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/sleep_mgr</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/trx_access</Value>
+						<Value>../src/config</Value>
+					</ListValues>
+				</armgcc.assembler.general.IncludePaths>
+				<armgcc.preprocessingassembler.general.IncludePaths>
+					<ListValues>
+						<Value>../src</Value>
+						<Value>../src/ASF/common/boards</Value>
+						<Value>../src/ASF/common/services/serial</Value>
+						<Value>../src/ASF/common/utils</Value>
+						<Value>../src/ASF/common2/components/display/ssd1306</Value>
+						<Value>../src/ASF/common2/services/delay</Value>
+						<Value>../src/ASF/common2/services/delay/sam0</Value>
+						<Value>../src/ASF/common2/services/gfx_mono</Value>
+						<Value>../src/ASF/sam0/boards</Value>
+						<Value>../src/ASF/sam0/boards/samr34_xplained_pro</Value>
+						<Value>../src/ASF/sam0/drivers/aes</Value>
+						<Value>../src/ASF/sam0/drivers/extint</Value>
+						<Value>../src/ASF/sam0/drivers/nvm</Value>
+						<Value>../src/ASF/sam0/drivers/port</Value>
+						<Value>../src/ASF/sam0/drivers/rtc</Value>
+						<Value>../src/ASF/sam0/drivers/sercom</Value>
+						<Value>../src/ASF/sam0/drivers/sercom/i2c</Value>
+						<Value>../src/ASF/sam0/drivers/sercom/spi</Value>
+						<Value>../src/ASF/sam0/drivers/sercom/usart</Value>
+						<Value>../src/ASF/sam0/drivers/system</Value>
+						<Value>../src/ASF/sam0/drivers/system/clock</Value>
+						<Value>../src/ASF/sam0/drivers/system/clock/clock_samr34</Value>
+						<Value>../src/ASF/sam0/drivers/system/interrupt</Value>
+						<Value>../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samr34</Value>
+						<Value>../src/ASF/sam0/drivers/system/pinmux</Value>
+						<Value>../src/ASF/sam0/drivers/system/power</Value>
+						<Value>../src/ASF/sam0/drivers/system/power/power_sam_l</Value>
+						<Value>../src/ASF/sam0/drivers/system/reset</Value>
+						<Value>../src/ASF/sam0/drivers/system/reset/reset_sam_l</Value>
+						<Value>../src/ASF/sam0/drivers/tc</Value>
+						<Value>../src/ASF/sam0/utils</Value>
+						<Value>../src/ASF/sam0/utils/cmsis/samr34/include</Value>
+						<Value>../src/ASF/sam0/utils/cmsis/samr34/source</Value>
+						<Value>../src/ASF/sam0/utils/header_files</Value>
+						<Value>../src/ASF/sam0/utils/preprocessor</Value>
+						<Value>../src/ASF/sam0/utils/stdio/stdio_serial</Value>
+						<Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+						<Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/include</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/lcd</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/External</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/wl</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/mimac</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/mimac/phy</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/miwi_p2p_star</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/sys</Value>
+						<Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/hal/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/mac/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/pmm/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/regparams/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/regparams/multiband/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/services/aes/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/services/sw_timer/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/sys/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/tal/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/tal/sx1276/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/common_hw_timer</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/edbg_eui</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/nvm</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/sal/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/sleep_mgr</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/trx_access</Value>
+						<Value>../src/config</Value>
+					</ListValues>
+				</armgcc.preprocessingassembler.general.IncludePaths>
+				<!-- Project configurable options -->
+				<armgcc.compiler.optimization.level>Optimize most (-O3)</armgcc.compiler.optimization.level>
+				<armgcc.linker.miscellaneous.LinkerFlags>-Wl,--entry=Reset_Handler -Wl,--cref -mthumb -T../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/src/wl/linkerscripts/samr34/gcc/samr34j18b_flash.ld</armgcc.linker.miscellaneous.LinkerFlags>
+				<armgcc.linker.libraries.Libraries>
+					<ListValues>
+						<Value>LORAWAN_LIBGEN</Value>
+						<Value>arm_cortexM0l_math</Value>
+						<Value>sam0_lib_hw_timer</Value>
+					</ListValues>
+				</armgcc.linker.libraries.Libraries>
+				<armgcc.linker.libraries.LibrarySearchPaths>
+					<ListValues>
+						<Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/libgen/sam0/gcc</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib</Value>
+					</ListValues>
+				</armgcc.linker.libraries.LibrarySearchPaths>
+				<armgcc.linker.general.DoNotUseStandardStartFiles>False</armgcc.linker.general.DoNotUseStandardStartFiles>
+				<armgcc.linker.general.DoNotUseDefaultLibraries>False</armgcc.linker.general.DoNotUseDefaultLibraries>
+				<armgcc.linker.general.NoStartupOrDefaultLibs>False</armgcc.linker.general.NoStartupOrDefaultLibs>
+				<!-- Fixed options, according to ASF 2 AVR32 Makefile -->
+				<armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
+				<armgcc.compiler.optimization.DebugLevel>None</armgcc.compiler.optimization.DebugLevel>
+				<armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+				<armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
+				<armgcc.compiler.optimization.OtherFlags>-fdata-sections</armgcc.compiler.optimization.OtherFlags>
+				<armgcc.compiler.miscellaneous.OtherFlags>-pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500</armgcc.compiler.miscellaneous.OtherFlags>
+				<armgcc.assembler.general.AssemblerFlags/>
+				<armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM0PLUS=true -DAS_BAND=1 -DAU_BAND=1 -DBOARD=SAMR34_XPLAINED_PRO -DCONF_PMM_ENABLE -DENABLE_NETWORK_FREEZER -DEU_BAND=1 -DEXTINT_CALLBACK_MODE=true -DGFX_MONO_UG_2832HSWEG04=1 -DI2C_MASTER_CALLBACK_MODE=false -DIND_BAND=1 -DJPN_BAND=1 -DKR_BAND=1 -DNA_BAND=1 -DPDS_ENABLE_WEAR_LEVELING -DPHY_SX1276 -DPROTOCOL_P2P -DRTC_COUNT_ASYNC=true -DSAL_TYPE=AT86RF2xx -DSPI_CALLBACK_MODE=false -DSYSTICK_MODE -DTC_ASYNC=true -DUSART_CALLBACK_MODE=true -D_DEBUG_=0 -D__SAMR34J18B__</armgcc.preprocessingassembler.general.AssemblerFlags>
+				<armgcc.linker.general.UseNewlibNano>True</armgcc.linker.general.UseNewlibNano>
+				<armgcc.preprocessingassembler.debugging.DebugLevel>None</armgcc.preprocessingassembler.debugging.DebugLevel>
+				<armgcc.assembler.debugging.DebugLevel>None</armgcc.assembler.debugging.DebugLevel>
+			</ArmGcc>
+		</ToolchainSettings>
+		<GenerateHexFile>True</GenerateHexFile>
+		<GenerateMapFile>True</GenerateMapFile>
+		<GenerateListFile>True</GenerateListFile>
+		<GenerateEepFile>True</GenerateEepFile>
+		<PreBuildEvent></PreBuildEvent>
+		<PostBuildEvent></PostBuildEvent>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+		<ToolchainSettings>
+			<ArmGcc>
+				<armgcc.compiler.symbols.DefSymbols>
+					<ListValues>
+						<Value>ARM_MATH_CM0PLUS=true</Value>
+						<Value>AS_BAND=1</Value>
+						<Value>AU_BAND=1</Value>
+						<Value>BOARD=SAMR34_XPLAINED_PRO</Value>
+						<Value>CONF_PMM_ENABLE</Value>
+						<Value>ENABLE_NETWORK_FREEZER</Value>
+						<Value>EU_BAND=1</Value>
+						<Value>EXTINT_CALLBACK_MODE=true</Value>
+						<Value>GFX_MONO_UG_2832HSWEG04=1</Value>
+						<Value>I2C_MASTER_CALLBACK_MODE=false</Value>
+						<Value>IND_BAND=1</Value>
+						<Value>JPN_BAND=1</Value>
+						<Value>KR_BAND=1</Value>
+						<Value>NA_BAND=1</Value>
+						<Value>PDS_ENABLE_WEAR_LEVELING</Value>
+						<Value>PHY_SX1276</Value>
+						<Value>PROTOCOL_P2P</Value>
+						<Value>RTC_COUNT_ASYNC=true</Value>
+						<Value>SAL_TYPE=AT86RF2xx</Value>
+						<Value>SPI_CALLBACK_MODE=false</Value>
+						<Value>SYSTICK_MODE</Value>
+						<Value>TC_ASYNC=true</Value>
+						<Value>USART_CALLBACK_MODE=true</Value>
+						<Value>_DEBUG_=0</Value>
+						<Value>__SAMR34J18B__</Value>
+					</ListValues>
+				</armgcc.compiler.symbols.DefSymbols>
+				<armgcc.compiler.directories.IncludePaths>
+					<ListValues>
+						<Value>../src</Value>
+						<Value>../src/ASF/common/boards</Value>
+						<Value>../src/ASF/common/services/serial</Value>
+						<Value>../src/ASF/common/utils</Value>
+						<Value>../src/ASF/common2/components/display/ssd1306</Value>
+						<Value>../src/ASF/common2/services/delay</Value>
+						<Value>../src/ASF/common2/services/delay/sam0</Value>
+						<Value>../src/ASF/common2/services/gfx_mono</Value>
+						<Value>../src/ASF/sam0/boards</Value>
+						<Value>../src/ASF/sam0/boards/samr34_xplained_pro</Value>
+						<Value>../src/ASF/sam0/drivers/aes</Value>
+						<Value>../src/ASF/sam0/drivers/extint</Value>
+						<Value>../src/ASF/sam0/drivers/nvm</Value>
+						<Value>../src/ASF/sam0/drivers/port</Value>
+						<Value>../src/ASF/sam0/drivers/rtc</Value>
+						<Value>../src/ASF/sam0/drivers/sercom</Value>
+						<Value>../src/ASF/sam0/drivers/sercom/i2c</Value>
+						<Value>../src/ASF/sam0/drivers/sercom/spi</Value>
+						<Value>../src/ASF/sam0/drivers/sercom/usart</Value>
+						<Value>../src/ASF/sam0/drivers/system</Value>
+						<Value>../src/ASF/sam0/drivers/system/clock</Value>
+						<Value>../src/ASF/sam0/drivers/system/clock/clock_samr34</Value>
+						<Value>../src/ASF/sam0/drivers/system/interrupt</Value>
+						<Value>../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samr34</Value>
+						<Value>../src/ASF/sam0/drivers/system/pinmux</Value>
+						<Value>../src/ASF/sam0/drivers/system/power</Value>
+						<Value>../src/ASF/sam0/drivers/system/power/power_sam_l</Value>
+						<Value>../src/ASF/sam0/drivers/system/reset</Value>
+						<Value>../src/ASF/sam0/drivers/system/reset/reset_sam_l</Value>
+						<Value>../src/ASF/sam0/drivers/tc</Value>
+						<Value>../src/ASF/sam0/utils</Value>
+						<Value>../src/ASF/sam0/utils/cmsis/samr34/include</Value>
+						<Value>../src/ASF/sam0/utils/cmsis/samr34/source</Value>
+						<Value>../src/ASF/sam0/utils/header_files</Value>
+						<Value>../src/ASF/sam0/utils/preprocessor</Value>
+						<Value>../src/ASF/sam0/utils/stdio/stdio_serial</Value>
+						<Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+						<Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/include</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/lcd</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/External</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/wl</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/mimac</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/mimac/phy</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/miwi_p2p_star</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/sys</Value>
+						<Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/hal/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/mac/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/pmm/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/regparams/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/regparams/multiband/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/services/aes/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/services/sw_timer/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/sys/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/tal/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/tal/sx1276/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/common_hw_timer</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/edbg_eui</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/nvm</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/sal/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/sleep_mgr</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/trx_access</Value>
+						<Value>../src/config</Value>
+					</ListValues>
+				</armgcc.compiler.directories.IncludePaths>
+				<armgcc.assembler.general.IncludePaths>
+					<ListValues>
+						<Value>../src</Value>
+						<Value>../src/ASF/common/boards</Value>
+						<Value>../src/ASF/common/services/serial</Value>
+						<Value>../src/ASF/common/utils</Value>
+						<Value>../src/ASF/common2/components/display/ssd1306</Value>
+						<Value>../src/ASF/common2/services/delay</Value>
+						<Value>../src/ASF/common2/services/delay/sam0</Value>
+						<Value>../src/ASF/common2/services/gfx_mono</Value>
+						<Value>../src/ASF/sam0/boards</Value>
+						<Value>../src/ASF/sam0/boards/samr34_xplained_pro</Value>
+						<Value>../src/ASF/sam0/drivers/aes</Value>
+						<Value>../src/ASF/sam0/drivers/extint</Value>
+						<Value>../src/ASF/sam0/drivers/nvm</Value>
+						<Value>../src/ASF/sam0/drivers/port</Value>
+						<Value>../src/ASF/sam0/drivers/rtc</Value>
+						<Value>../src/ASF/sam0/drivers/sercom</Value>
+						<Value>../src/ASF/sam0/drivers/sercom/i2c</Value>
+						<Value>../src/ASF/sam0/drivers/sercom/spi</Value>
+						<Value>../src/ASF/sam0/drivers/sercom/usart</Value>
+						<Value>../src/ASF/sam0/drivers/system</Value>
+						<Value>../src/ASF/sam0/drivers/system/clock</Value>
+						<Value>../src/ASF/sam0/drivers/system/clock/clock_samr34</Value>
+						<Value>../src/ASF/sam0/drivers/system/interrupt</Value>
+						<Value>../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samr34</Value>
+						<Value>../src/ASF/sam0/drivers/system/pinmux</Value>
+						<Value>../src/ASF/sam0/drivers/system/power</Value>
+						<Value>../src/ASF/sam0/drivers/system/power/power_sam_l</Value>
+						<Value>../src/ASF/sam0/drivers/system/reset</Value>
+						<Value>../src/ASF/sam0/drivers/system/reset/reset_sam_l</Value>
+						<Value>../src/ASF/sam0/drivers/tc</Value>
+						<Value>../src/ASF/sam0/utils</Value>
+						<Value>../src/ASF/sam0/utils/cmsis/samr34/include</Value>
+						<Value>../src/ASF/sam0/utils/cmsis/samr34/source</Value>
+						<Value>../src/ASF/sam0/utils/header_files</Value>
+						<Value>../src/ASF/sam0/utils/preprocessor</Value>
+						<Value>../src/ASF/sam0/utils/stdio/stdio_serial</Value>
+						<Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+						<Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/include</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/lcd</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/External</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/wl</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/mimac</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/mimac/phy</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/miwi_p2p_star</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/sys</Value>
+						<Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/hal/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/mac/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/pmm/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/regparams/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/regparams/multiband/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/services/aes/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/services/sw_timer/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/sys/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/tal/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/tal/sx1276/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/common_hw_timer</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/edbg_eui</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/nvm</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/sal/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/sleep_mgr</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/trx_access</Value>
+						<Value>../src/config</Value>
+					</ListValues>
+				</armgcc.assembler.general.IncludePaths>
+				<armgcc.preprocessingassembler.general.IncludePaths>
+					<ListValues>
+						<Value>../src</Value>
+						<Value>../src/ASF/common/boards</Value>
+						<Value>../src/ASF/common/services/serial</Value>
+						<Value>../src/ASF/common/utils</Value>
+						<Value>../src/ASF/common2/components/display/ssd1306</Value>
+						<Value>../src/ASF/common2/services/delay</Value>
+						<Value>../src/ASF/common2/services/delay/sam0</Value>
+						<Value>../src/ASF/common2/services/gfx_mono</Value>
+						<Value>../src/ASF/sam0/boards</Value>
+						<Value>../src/ASF/sam0/boards/samr34_xplained_pro</Value>
+						<Value>../src/ASF/sam0/drivers/aes</Value>
+						<Value>../src/ASF/sam0/drivers/extint</Value>
+						<Value>../src/ASF/sam0/drivers/nvm</Value>
+						<Value>../src/ASF/sam0/drivers/port</Value>
+						<Value>../src/ASF/sam0/drivers/rtc</Value>
+						<Value>../src/ASF/sam0/drivers/sercom</Value>
+						<Value>../src/ASF/sam0/drivers/sercom/i2c</Value>
+						<Value>../src/ASF/sam0/drivers/sercom/spi</Value>
+						<Value>../src/ASF/sam0/drivers/sercom/usart</Value>
+						<Value>../src/ASF/sam0/drivers/system</Value>
+						<Value>../src/ASF/sam0/drivers/system/clock</Value>
+						<Value>../src/ASF/sam0/drivers/system/clock/clock_samr34</Value>
+						<Value>../src/ASF/sam0/drivers/system/interrupt</Value>
+						<Value>../src/ASF/sam0/drivers/system/interrupt/system_interrupt_samr34</Value>
+						<Value>../src/ASF/sam0/drivers/system/pinmux</Value>
+						<Value>../src/ASF/sam0/drivers/system/power</Value>
+						<Value>../src/ASF/sam0/drivers/system/power/power_sam_l</Value>
+						<Value>../src/ASF/sam0/drivers/system/reset</Value>
+						<Value>../src/ASF/sam0/drivers/system/reset/reset_sam_l</Value>
+						<Value>../src/ASF/sam0/drivers/tc</Value>
+						<Value>../src/ASF/sam0/utils</Value>
+						<Value>../src/ASF/sam0/utils/cmsis/samr34/include</Value>
+						<Value>../src/ASF/sam0/utils/cmsis/samr34/source</Value>
+						<Value>../src/ASF/sam0/utils/header_files</Value>
+						<Value>../src/ASF/sam0/utils/preprocessor</Value>
+						<Value>../src/ASF/sam0/utils/stdio/stdio_serial</Value>
+						<Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+						<Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/include</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/lcd</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/nv/External</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/inc/wl</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/mimac</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/mimac/phy</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/miwi_p2p_star</Value>
+						<Value>../src/ASF/thirdparty/wireless/LoRa_P2P/source/sys</Value>
+						<Value>../src/ASF/thirdparty/wireless/addons/sio2host/uart</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/hal/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/mac/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/pmm/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/regparams/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/regparams/multiband/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/services/aes/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/services/sw_timer/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/sys/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/tal/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/tal/sx1276/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/common_hw_timer</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/edbg_eui</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/nvm</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/sal/inc</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/sleep_mgr</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/trx_access</Value>
+						<Value>../src/config</Value>
+					</ListValues>
+				</armgcc.preprocessingassembler.general.IncludePaths>
+				<!-- Project configurable options -->
+				<armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
+				<armgcc.linker.miscellaneous.LinkerFlags>-Wl,--entry=Reset_Handler -Wl,--cref -mthumb -T../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/src/wl/linkerscripts/samr34/gcc/samr34j18b_flash.ld</armgcc.linker.miscellaneous.LinkerFlags>
+				<armgcc.linker.libraries.Libraries>
+					<ListValues>
+						<Value>LORAWAN_LIBGEN</Value>
+						<Value>arm_cortexM0l_math</Value>
+						<Value>sam0_lib_hw_timer</Value>
+					</ListValues>
+				</armgcc.linker.libraries.Libraries>
+				<armgcc.linker.libraries.LibrarySearchPaths>
+					<ListValues>
+						<Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+						<Value>../src/ASF/thirdparty/wireless/lorawan/libgen/sam0/gcc</Value>
+						<Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0/lib</Value>
+					</ListValues>
+				</armgcc.linker.libraries.LibrarySearchPaths>
+				<armgcc.linker.general.DoNotUseStandardStartFiles>False</armgcc.linker.general.DoNotUseStandardStartFiles>
+				<armgcc.linker.general.DoNotUseDefaultLibraries>False</armgcc.linker.general.DoNotUseDefaultLibraries>
+				<armgcc.linker.general.NoStartupOrDefaultLibs>False</armgcc.linker.general.NoStartupOrDefaultLibs>
+				<!-- Fixed options, according to ASF 2 AVR32 Makefile -->
+				<armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
+				<armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
+				<armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+				<armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
+				<armgcc.compiler.optimization.OtherFlags>-fdata-sections</armgcc.compiler.optimization.OtherFlags>
+				<armgcc.compiler.miscellaneous.OtherFlags>-pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500</armgcc.compiler.miscellaneous.OtherFlags>
+				<armgcc.assembler.general.AssemblerFlags/>
+				<armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM0PLUS=true -DAS_BAND=1 -DAU_BAND=1 -DBOARD=SAMR34_XPLAINED_PRO -DCONF_PMM_ENABLE -DENABLE_NETWORK_FREEZER -DEU_BAND=1 -DEXTINT_CALLBACK_MODE=true -DGFX_MONO_UG_2832HSWEG04=1 -DI2C_MASTER_CALLBACK_MODE=false -DIND_BAND=1 -DJPN_BAND=1 -DKR_BAND=1 -DNA_BAND=1 -DPDS_ENABLE_WEAR_LEVELING -DPHY_SX1276 -DPROTOCOL_P2P -DRTC_COUNT_ASYNC=true -DSAL_TYPE=AT86RF2xx -DSPI_CALLBACK_MODE=false -DSYSTICK_MODE -DTC_ASYNC=true -DUSART_CALLBACK_MODE=true -D_DEBUG_=0 -D__SAMR34J18B__</armgcc.preprocessingassembler.general.AssemblerFlags>
+				<armgcc.linker.general.UseNewlibNano>True</armgcc.linker.general.UseNewlibNano>
+				<armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
+				<armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
+			</ArmGcc>
+		</ToolchainSettings>
+		<GenerateHexFile>True</GenerateHexFile>
+		<GenerateMapFile>True</GenerateMapFile>
+		<GenerateListFile>True</GenerateListFile>
+		<GenerateEepFile>True</GenerateEepFile>
+		<PreBuildEvent></PreBuildEvent>
+		<PostBuildEvent></PostBuildEvent>
+	</PropertyGroup>
+	<ItemGroup>
+		<Compile Include="src\ASF\common2\components\display\ssd1306\ssd1306.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\common2\services\delay\sam0\systick_counter.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\common2\services\gfx_mono\gfx_mono_framebuffer.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\common2\services\gfx_mono\gfx_mono_generic.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\common2\services\gfx_mono\gfx_mono_spinctrl.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\common2\services\gfx_mono\gfx_mono_text.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\common2\services\gfx_mono\gfx_mono_ug_2832hsweg04.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\common2\services\gfx_mono\sysfont.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\common\utils\interrupt\interrupt_sam_nvic.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\boards\samr34_xplained_pro\board_init.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\drivers\aes\aes.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\drivers\aes\aes_callback.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\drivers\extint\extint_callback.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\drivers\extint\extint_sam_l_c\extint.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\drivers\nvm\nvm.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\drivers\port\port.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\drivers\rtc\rtc_sam_l_c\rtc_count.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\drivers\rtc\rtc_sam_l_c\rtc_count_interrupt.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\drivers\sercom\i2c\i2c_sam0\i2c_master.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\drivers\sercom\sercom.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\drivers\sercom\sercom_interrupt.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\drivers\sercom\spi\spi.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\drivers\sercom\usart\usart.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\drivers\sercom\usart\usart_interrupt.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\drivers\system\clock\clock_samr34\clock.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\drivers\system\clock\clock_samr34\gclk.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\drivers\system\interrupt\system_interrupt.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\drivers\system\pinmux\pinmux.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\drivers\system\system.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\drivers\tc\tc_interrupt.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\drivers\tc\tc_sam_l_c\tc.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\utils\cmsis\samr34\source\gcc\startup_samr34.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\utils\cmsis\samr34\source\system_samr34.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\utils\stdio\read.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\utils\stdio\write.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\sam0\utils\syscalls\gcc\syscalls.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\demo_output.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\main.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\p2p_demo.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\task.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\lcd\lcd.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\src\nv\D_Nv.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\src\nv\External\D_XNv-SamR21.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\src\nv\External\S_Nv-External.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\src\nv\External\S_XNv.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\src\nv\S_Nv-SamR21.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\src\wl\wlPdsDataServer.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\src\wl\wlPdsInit.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\src\wl\wlPdsTaskManager.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\src\wl\wlPdsTypesConverter.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\LoRa_P2P\source\mimac\mimac.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\LoRa_P2P\source\mimac\phy\sx1276\phy.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\LoRa_P2P\source\miwi_p2p_star\miwi_p2p.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\LoRa_P2P\source\miwi_p2p_star\miwi_p2p_pds.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\LoRa_P2P\source\sys\mimem.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\LoRa_P2P\source\sys\miqueue.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\LoRa_P2P\source\sys\sysTimer.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\addons\sio2host\uart\sio2host.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\lorawan\hal\src\radio_driver_hal.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\lorawan\hal\src\sleep\sam0\sleep.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\lorawan\hal\src\sleep_timer\sam0\sleep_timer.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\lorawan\hal\src\sys.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\lorawan\pmm\src\pmm.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\src\lorawan_mband_as.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\src\lorawan_mband_au.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\src\lorawan_mband_eu.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\src\lorawan_mband_in.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\src\lorawan_mband_jp.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\src\lorawan_mband_kr.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\src\lorawan_mband_na.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\src\lorawan_multiband.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\lorawan\services\aes\src\hw\sam0\aes_engine.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\lorawan\services\sw_timer\src\sw_timer.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\lorawan\sys\src\system_assert.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\lorawan\sys\src\system_init.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\lorawan\sys\src\system_low_power.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\lorawan\sys\src\system_task_manager.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\lorawan\tal\sx1276\src\radio_driver_SX1276.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\services\common_hw_timer\sam0\hw_timer.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\services\edbg_eui\edbg-eui.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\services\nvm\sam0\sam_nvm.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\services\sal\at86rf2xx\src\sal.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\services\sleep_mgr\sam0\sleep_mgr.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<Compile Include="src\ASF\thirdparty\wireless\services\trx_access\trx_access_1.c">
+			<SubType>compile</SubType>
+		</Compile>
+		<None Include="src\asf.h"/>
+		<None Include="src\ASF\common2\components\display\ssd1306\ssd1306.h"/>
+		<None Include="src\ASF\common2\services\delay\delay.h"/>
+		<None Include="src\ASF\common2\services\delay\sam0\systick_counter.h"/>
+		<None Include="src\ASF\common2\services\gfx_mono\docsrc\gfx_mono_overview.png"/>
+		<None Include="src\ASF\common2\services\gfx_mono\gfx_mono.h"/>
+		<None Include="src\ASF\common2\services\gfx_mono\gfx_mono_framebuffer.h"/>
+		<None Include="src\ASF\common2\services\gfx_mono\gfx_mono_generic.h"/>
+		<None Include="src\ASF\common2\services\gfx_mono\gfx_mono_spinctrl.h"/>
+		<None Include="src\ASF\common2\services\gfx_mono\gfx_mono_text.h"/>
+		<None Include="src\ASF\common2\services\gfx_mono\gfx_mono_ug_2832hsweg04.h"/>
+		<None Include="src\ASF\common2\services\gfx_mono\sysfont.h"/>
+		<None Include="src\ASF\common2\services\gfx_mono\tools\bitmap.py"/>
+		<None Include="src\ASF\common2\services\gfx_mono\tools\dump_display_over_serial.py"/>
+		<None Include="src\ASF\common2\services\gfx_mono\tools\readme.txt"/>
+		<None Include="src\ASF\common\boards\board.h"/>
+		<None Include="src\ASF\common\services\serial\sam0_usart\usart_serial.h"/>
+		<None Include="src\ASF\common\services\serial\serial.h"/>
+		<None Include="src\ASF\common\utils\interrupt.h"/>
+		<None Include="src\ASF\common\utils\interrupt\interrupt_sam_nvic.h"/>
+		<None Include="src\ASF\common\utils\parts.h"/>
+		<None Include="src\ASF\sam0\boards\samr34_xplained_pro\samr34_xplained_pro.h"/>
+		<None Include="src\ASF\sam0\drivers\aes\aes.h"/>
+		<None Include="src\ASF\sam0\drivers\aes\aes_callback.h"/>
+		<None Include="src\ASF\sam0\drivers\extint\extint.h"/>
+		<None Include="src\ASF\sam0\drivers\extint\extint_callback.h"/>
+		<None Include="src\ASF\sam0\drivers\nvm\nvm.h"/>
+		<None Include="src\ASF\sam0\drivers\nvm\quick_start_basic\qs_nvm_basic.h"/>
+		<None Include="src\ASF\sam0\drivers\port\port.h"/>
+		<None Include="src\ASF\sam0\drivers\port\quick_start\qs_port_basic.h"/>
+		<None Include="src\ASF\sam0\drivers\rtc\rtc_count.h"/>
+		<None Include="src\ASF\sam0\drivers\rtc\rtc_count_interrupt.h"/>
+		<None Include="src\ASF\sam0\drivers\rtc\rtc_tamper.h"/>
+		<None Include="src\ASF\sam0\drivers\sercom\i2c\i2c_common.h"/>
+		<None Include="src\ASF\sam0\drivers\sercom\i2c\i2c_master.h"/>
+		<None Include="src\ASF\sam0\drivers\sercom\i2c\quick_start_master\qs_i2c_master_basic_use.h"/>
+		<None Include="src\ASF\sam0\drivers\sercom\i2c\quick_start_master_dma\qs_i2c_master_dma.h"/>
+		<None Include="src\ASF\sam0\drivers\sercom\sercom.h"/>
+		<None Include="src\ASF\sam0\drivers\sercom\sercom_interrupt.h"/>
+		<None Include="src\ASF\sam0\drivers\sercom\sercom_pinout.h"/>
+		<None Include="src\ASF\sam0\drivers\sercom\spi\quick_start_dma\qs_spi_dma_use.h"/>
+		<None Include="src\ASF\sam0\drivers\sercom\spi\quick_start_master\qs_spi_master_basic.h"/>
+		<None Include="src\ASF\sam0\drivers\sercom\spi\quick_start_slave\qs_spi_slave_basic.h"/>
+		<None Include="src\ASF\sam0\drivers\sercom\spi\spi.h"/>
+		<None Include="src\ASF\sam0\drivers\sercom\usart\quick_start\qs_usart_basic_use.h"/>
+		<None Include="src\ASF\sam0\drivers\sercom\usart\quick_start_callback\qs_usart_callback.h"/>
+		<None Include="src\ASF\sam0\drivers\sercom\usart\quick_start_dma\qs_usart_dma_use.h"/>
+		<None Include="src\ASF\sam0\drivers\sercom\usart\quick_start_lin\qs_lin.h"/>
+		<None Include="src\ASF\sam0\drivers\sercom\usart\usart.h"/>
+		<None Include="src\ASF\sam0\drivers\sercom\usart\usart_interrupt.h"/>
+		<None Include="src\ASF\sam0\drivers\system\clock\clock.h"/>
+		<None Include="src\ASF\sam0\drivers\system\clock\clock_samr34\clock_config_check.h"/>
+		<None Include="src\ASF\sam0\drivers\system\clock\clock_samr34\clock_feature.h"/>
+		<None Include="src\ASF\sam0\drivers\system\clock\gclk.h"/>
+		<None Include="src\ASF\sam0\drivers\system\interrupt\system_interrupt.h"/>
+		<None Include="src\ASF\sam0\drivers\system\interrupt\system_interrupt_samr34\system_interrupt_features.h"/>
+		<None Include="src\ASF\sam0\drivers\system\pinmux\pinmux.h"/>
+		<None Include="src\ASF\sam0\drivers\system\pinmux\quick_start\qs_pinmux_basic.h"/>
+		<None Include="src\ASF\sam0\drivers\system\power\power_sam_l\power.h"/>
+		<None Include="src\ASF\sam0\drivers\system\reset\reset_sam_l\reset.h"/>
+		<None Include="src\ASF\sam0\drivers\system\system.h"/>
+		<None Include="src\ASF\sam0\drivers\tc\tc.h"/>
+		<None Include="src\ASF\sam0\drivers\tc\tc_interrupt.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\ac.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\adc.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\aes.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\ccl.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\dac.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\dmac.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\dsu.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\eic.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\evsys.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\gclk.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\mclk.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\mtb.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\nvmctrl.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\osc32kctrl.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\oscctrl.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\pac.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\pm.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\port.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\rstc.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\rtc.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\sercom.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\supc.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\tal.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\tc.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\tcc.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\trng.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\usb.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\component\wdt.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\ac.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\adc.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\aes.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\ccl.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\dac.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\dmac.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\dsu.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\eic.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\evsys.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\gclk.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\mclk.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\mtb.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\nvmctrl.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\osc32kctrl.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\oscctrl.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\pac.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\pm.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\port.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\rstc.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\rtc.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\sercom0.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\sercom1.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\sercom2.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\sercom3.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\sercom4.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\sercom5.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\supc.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\tal.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\tc0.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\tc1.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\tc2.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\tc3.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\tc4.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\tcc0.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\tcc1.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\tcc2.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\trng.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\usb.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\wdt.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\pio\samr34j16b.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\pio\samr34j17b.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\pio\samr34j18b.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\samr34.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\samr34j16b.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\samr34j17b.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\include\samr34j18b.h"/>
+		<None Include="src\ASF\sam0\utils\cmsis\samr34\source\system_samr34.h"/>
+		<None Include="src\ASF\sam0\utils\compiler.h"/>
+		<None Include="src\ASF\sam0\utils\header_files\io.h"/>
+		<None Include="src\ASF\sam0\utils\make\Makefile.sam.in"/>
+		<None Include="src\ASF\sam0\utils\preprocessor\mrecursion.h"/>
+		<None Include="src\ASF\sam0\utils\preprocessor\mrepeat.h"/>
+		<None Include="src\ASF\sam0\utils\preprocessor\preprocessor.h"/>
+		<None Include="src\ASF\sam0\utils\preprocessor\stringz.h"/>
+		<None Include="src\ASF\sam0\utils\preprocessor\tpaste.h"/>
+		<None Include="src\ASF\sam0\utils\status_codes.h"/>
+		<None Include="src\ASF\sam0\utils\stdio\stdio_serial\stdio_serial.h"/>
+		<None Include="src\ASF\thirdparty\CMSIS\ATMEL-disclaimer.txt"/>
+		<None Include="src\ASF\thirdparty\CMSIS\CMSIS_END_USER_LICENCE_AGREEMENT.pdf"/>
+		<None Include="src\ASF\thirdparty\CMSIS\Include\arm_math.h"/>
+		<None Include="src\ASF\thirdparty\CMSIS\Include\core_cm0plus.h"/>
+		<None Include="src\ASF\thirdparty\CMSIS\Include\core_cmFunc.h"/>
+		<None Include="src\ASF\thirdparty\CMSIS\Include\core_cmInstr.h"/>
+		<None Include="src\ASF\thirdparty\CMSIS\Lib\GCC\libarm_cortexM0l_math.a"/>
+		<None Include="src\ASF\thirdparty\CMSIS\Lib\license.txt"/>
+		<None Include="src\ASF\thirdparty\CMSIS\README.txt"/>
+		<None Include="src\ASF\thirdparty\CMSIS\license.txt"/>
+		<None Include="src\ASF\thirdparty\wireless\EULA.txt"/>
+		<None Include="src\demo_output.h"/>
+		<None Include="src\config\miwi_config.h"/>
+		<None Include="src\config\miwi_config_p2p.h"/>
+		<None Include="src\p2p_demo.h"/>
+		<None Include="src\config\conf_board.h"/>
+		<None Include="src\config\conf_clocks.h"/>
+		<None Include="src\config\conf_extint.h"/>
+		<None Include="src\config\conf_hw_timer.h"/>
+		<None Include="src\config\conf_nvm.h"/>
+		<None Include="src\config\conf_pmm.h"/>
+		<None Include="src\config\conf_regparams.h"/>
+		<None Include="src\config\conf_rtc.h"/>
+		<None Include="src\config\conf_sio2host.h"/>
+		<None Include="src\config\conf_spi.h"/>
+		<None Include="src\config\conf_spinctrl.h"/>
+		<None Include="src\config\conf_ssd1306.h"/>
+		<None Include="src\config\conf_sw_timer.h"/>
+		<None Include="src\config\conf_sysfont.h"/>
+		<None Include="src\config\conf_trx_access.h"/>
+		<None Include="src\task.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\include\miwi_api.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\license.txt"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\lcd\lcd.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\nv\D_Nv.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\nv\D_Nv_Bindings.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\nv\D_Nv_Init.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\nv\External\D_XNv.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\nv\External\D_XNv_Bindings.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\nv\External\D_XNv_Init.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\nv\External\S_XNv.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\nv\External\S_XNv_Bindings.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\nv\External\S_XNv_Init.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\nv\S_Nv.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\nv\S_Nv_Bindings.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\nv\S_Nv_Init.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\nv\S_Nv_Internal.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\pdsDataServer.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\pdsMemIds.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\wl\wlPdsBindings.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\wl\wlPdsMemIds.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\wl\wlPdsTaskManager.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\wl\wlPdsTypes.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\wl\wlPdsTypesConverter.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\src\wl\linkerscripts\samr34\gcc\samr34j18b_flash.ld"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\source\mimac\mimac.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\source\mimac\phy\phy.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\source\miwi_p2p_star\miwi_nvm.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\source\miwi_p2p_star\miwi_p2p.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\source\sys\mimem.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\source\sys\miqueue.h"/>
+		<None Include="src\ASF\thirdparty\wireless\LoRa_P2P\source\sys\sysTimer.h"/>
+		<None Include="src\ASF\thirdparty\wireless\addons\sio2host\uart\sio2host.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\hal\inc\atomic.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\hal\inc\radio_driver_hal.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\hal\inc\sleep.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\hal\inc\sleep_timer.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\hal\inc\sys.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\inc\conf_stack.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\inc\stack_common.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\libgen\sam0\gcc\libLORAWAN_LIBGEN.a"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\mac\inc\lorawan.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\pmm\inc\pmm.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\regparams\inc\lorawan_reg_params.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\inc\lorawan_multiband.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\services\aes\inc\aes_def.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\services\aes\inc\aes_engine.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\services\sw_timer\inc\sw_timer.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\sys\inc\system_assert.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\sys\inc\system_init.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\sys\inc\system_low_power.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\sys\inc\system_task_manager.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\tal\inc\radio_get_set.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\tal\inc\radio_interface.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\tal\inc\radio_lbt.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\tal\inc\radio_task_manager.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\tal\inc\radio_transaction.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\tal\sx1276\inc\radio_driver_SX1276.h"/>
+		<None Include="src\ASF\thirdparty\wireless\lorawan\tal\sx1276\inc\radio_registers_SX1276.h"/>
+		<None Include="src\ASF\thirdparty\wireless\services\common_hw_timer\common_hw_timer.h"/>
+		<None Include="src\ASF\thirdparty\wireless\services\common_hw_timer\sam0\hw_timer.h"/>
+		<None Include="src\ASF\thirdparty\wireless\services\common_hw_timer\sam0\lib\libsam0_lib_hw_timer.a"/>
+		<None Include="src\ASF\thirdparty\wireless\services\edbg_eui\edbg-eui.h"/>
+		<None Include="src\ASF\thirdparty\wireless\services\nvm\common_nvm.h"/>
+		<None Include="src\ASF\thirdparty\wireless\services\sal\inc\sal.h"/>
+		<None Include="src\ASF\thirdparty\wireless\services\sal\inc\sal_generic.h"/>
+		<None Include="src\ASF\thirdparty\wireless\services\sal\inc\sal_types.h"/>
+		<None Include="src\ASF\thirdparty\wireless\services\sleep_mgr\sleep_mgr.h"/>
+		<None Include="src\ASF\thirdparty\wireless\services\trx_access\trx_access_1.h"/>
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="src\"/>
+		<Folder Include="src\ASF\"/>
+		<Folder Include="src\ASF\common\"/>
+		<Folder Include="src\ASF\common2\"/>
+		<Folder Include="src\ASF\common2\components\"/>
+		<Folder Include="src\ASF\common2\components\display\"/>
+		<Folder Include="src\ASF\common2\components\display\ssd1306\"/>
+		<Folder Include="src\ASF\common2\services\"/>
+		<Folder Include="src\ASF\common2\services\delay\"/>
+		<Folder Include="src\ASF\common2\services\delay\sam0\"/>
+		<Folder Include="src\ASF\common2\services\gfx_mono\"/>
+		<Folder Include="src\ASF\common2\services\gfx_mono\docsrc\"/>
+		<Folder Include="src\ASF\common2\services\gfx_mono\tools\"/>
+		<Folder Include="src\ASF\common\boards\"/>
+		<Folder Include="src\ASF\common\services\"/>
+		<Folder Include="src\ASF\common\services\serial\"/>
+		<Folder Include="src\ASF\common\services\serial\sam0_usart\"/>
+		<Folder Include="src\ASF\common\utils\"/>
+		<Folder Include="src\ASF\common\utils\interrupt\"/>
+		<Folder Include="src\ASF\sam0\"/>
+		<Folder Include="src\ASF\sam0\boards\"/>
+		<Folder Include="src\ASF\sam0\boards\samr34_xplained_pro\"/>
+		<Folder Include="src\ASF\sam0\drivers\"/>
+		<Folder Include="src\ASF\sam0\drivers\aes\"/>
+		<Folder Include="src\ASF\sam0\drivers\extint\"/>
+		<Folder Include="src\ASF\sam0\drivers\extint\extint_sam_l_c\"/>
+		<Folder Include="src\ASF\sam0\drivers\nvm\"/>
+		<Folder Include="src\ASF\sam0\drivers\nvm\quick_start_basic\"/>
+		<Folder Include="src\ASF\sam0\drivers\port\"/>
+		<Folder Include="src\ASF\sam0\drivers\port\quick_start\"/>
+		<Folder Include="src\ASF\sam0\drivers\rtc\"/>
+		<Folder Include="src\ASF\sam0\drivers\rtc\rtc_sam_l_c\"/>
+		<Folder Include="src\ASF\sam0\drivers\sercom\"/>
+		<Folder Include="src\ASF\sam0\drivers\sercom\i2c\"/>
+		<Folder Include="src\ASF\sam0\drivers\sercom\i2c\i2c_sam0\"/>
+		<Folder Include="src\ASF\sam0\drivers\sercom\i2c\quick_start_master\"/>
+		<Folder Include="src\ASF\sam0\drivers\sercom\i2c\quick_start_master_dma\"/>
+		<Folder Include="src\ASF\sam0\drivers\sercom\spi\"/>
+		<Folder Include="src\ASF\sam0\drivers\sercom\spi\quick_start_dma\"/>
+		<Folder Include="src\ASF\sam0\drivers\sercom\spi\quick_start_master\"/>
+		<Folder Include="src\ASF\sam0\drivers\sercom\spi\quick_start_slave\"/>
+		<Folder Include="src\ASF\sam0\drivers\sercom\usart\"/>
+		<Folder Include="src\ASF\sam0\drivers\sercom\usart\quick_start\"/>
+		<Folder Include="src\ASF\sam0\drivers\sercom\usart\quick_start_callback\"/>
+		<Folder Include="src\ASF\sam0\drivers\sercom\usart\quick_start_dma\"/>
+		<Folder Include="src\ASF\sam0\drivers\sercom\usart\quick_start_lin\"/>
+		<Folder Include="src\ASF\sam0\drivers\system\"/>
+		<Folder Include="src\ASF\sam0\drivers\system\clock\"/>
+		<Folder Include="src\ASF\sam0\drivers\system\clock\clock_samr34\"/>
+		<Folder Include="src\ASF\sam0\drivers\system\interrupt\"/>
+		<Folder Include="src\ASF\sam0\drivers\system\interrupt\system_interrupt_samr34\"/>
+		<Folder Include="src\ASF\sam0\drivers\system\pinmux\"/>
+		<Folder Include="src\ASF\sam0\drivers\system\pinmux\quick_start\"/>
+		<Folder Include="src\ASF\sam0\drivers\system\power\"/>
+		<Folder Include="src\ASF\sam0\drivers\system\power\power_sam_l\"/>
+		<Folder Include="src\ASF\sam0\drivers\system\reset\"/>
+		<Folder Include="src\ASF\sam0\drivers\system\reset\reset_sam_l\"/>
+		<Folder Include="src\ASF\sam0\drivers\tc\"/>
+		<Folder Include="src\ASF\sam0\drivers\tc\tc_sam_l_c\"/>
+		<Folder Include="src\ASF\sam0\utils\"/>
+		<Folder Include="src\ASF\sam0\utils\cmsis\"/>
+		<Folder Include="src\ASF\sam0\utils\cmsis\samr34\"/>
+		<Folder Include="src\ASF\sam0\utils\cmsis\samr34\include\"/>
+		<Folder Include="src\ASF\sam0\utils\cmsis\samr34\include\component\"/>
+		<Folder Include="src\ASF\sam0\utils\cmsis\samr34\include\instance\"/>
+		<Folder Include="src\ASF\sam0\utils\cmsis\samr34\include\pio\"/>
+		<Folder Include="src\ASF\sam0\utils\cmsis\samr34\source\"/>
+		<Folder Include="src\ASF\sam0\utils\cmsis\samr34\source\gcc\"/>
+		<Folder Include="src\ASF\sam0\utils\header_files\"/>
+		<Folder Include="src\ASF\sam0\utils\make\"/>
+		<Folder Include="src\ASF\sam0\utils\preprocessor\"/>
+		<Folder Include="src\ASF\sam0\utils\stdio\"/>
+		<Folder Include="src\ASF\sam0\utils\stdio\stdio_serial\"/>
+		<Folder Include="src\ASF\sam0\utils\syscalls\"/>
+		<Folder Include="src\ASF\sam0\utils\syscalls\gcc\"/>
+		<Folder Include="src\ASF\thirdparty\"/>
+		<Folder Include="src\ASF\thirdparty\CMSIS\"/>
+		<Folder Include="src\ASF\thirdparty\CMSIS\Include\"/>
+		<Folder Include="src\ASF\thirdparty\CMSIS\Lib\"/>
+		<Folder Include="src\ASF\thirdparty\CMSIS\Lib\GCC\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\LoRa_P2P\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\LoRa_P2P\include\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\lcd\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\nv\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\nv\External\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\inc\wl\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\src\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\src\nv\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\src\nv\External\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\src\wl\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\src\wl\linkerscripts\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\src\wl\linkerscripts\samr34\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\LoRa_P2P\services\pds\src\wl\linkerscripts\samr34\gcc\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\LoRa_P2P\source\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\LoRa_P2P\source\mimac\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\LoRa_P2P\source\mimac\phy\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\LoRa_P2P\source\mimac\phy\sx1276\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\LoRa_P2P\source\miwi_p2p_star\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\LoRa_P2P\source\sys\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\addons\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\addons\sio2host\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\addons\sio2host\uart\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\hal\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\hal\inc\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\hal\src\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\hal\src\sleep\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\hal\src\sleep\sam0\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\hal\src\sleep_timer\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\hal\src\sleep_timer\sam0\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\inc\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\libgen\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\libgen\sam0\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\libgen\sam0\gcc\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\mac\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\mac\inc\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\pmm\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\pmm\inc\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\pmm\src\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\regparams\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\regparams\inc\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\inc\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\regparams\multiband\src\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\services\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\services\aes\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\services\aes\inc\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\services\aes\src\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\services\aes\src\hw\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\services\aes\src\hw\sam0\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\services\sw_timer\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\services\sw_timer\inc\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\services\sw_timer\src\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\sys\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\sys\inc\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\sys\src\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\tal\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\tal\inc\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\tal\sx1276\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\tal\sx1276\inc\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\lorawan\tal\sx1276\src\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\services\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\services\common_hw_timer\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\services\common_hw_timer\sam0\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\services\common_hw_timer\sam0\lib\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\services\edbg_eui\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\services\nvm\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\services\nvm\sam0\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\services\sal\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\services\sal\at86rf2xx\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\services\sal\at86rf2xx\src\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\services\sal\inc\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\services\sleep_mgr\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\services\sleep_mgr\sam0\"/>
+		<Folder Include="src\ASF\thirdparty\wireless\services\trx_access\"/>
+		<Folder Include="src\config\"/>
+	</ItemGroup>
+	<Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets"/>
+</Project>
