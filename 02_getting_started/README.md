@@ -113,6 +113,8 @@ Simply connect the micro USB cable to the **Debug EDBG USB** port of the board a
 <img src="resources/media/hardware_setup.png" width=480>
 </p>
 
+Download and install a serial terminal program like [TeraTerm](https://osdn.net/projects/ttssh2/releases/). Launch TeraTerm program and configure the serial ports mounted with: 115200 bps, 8 N 1
+
 ## Out-of-box Demo Application<a name="step6"></a>
 
 The simple example application code focuses on the simplicity of the LoRa P2P protocol stack application programming interfaces. It provides wireless communication between two devices with less than 30 lines of C code to run the stack in the application layer for both devices. In this application, the following features of LoRa P2P protocol stack are demonstrated:
