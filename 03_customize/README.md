@@ -269,14 +269,7 @@ Following are the LoRa P2P APIs located in `phy.c` which can be used to set the 
 - API: `RadioError_t PHY_SetAttribute(RadioAttribute_t RadioAttr,uint8_t* AttrVal)`
 - Set SF12:\
 `RadioDataRate_t sf = SF_12;`<br>
-`PHY_SetAttribute(SPREADING_FACTOR, &sf);`
-
-#### Set Bandwidth
-
-- API: `RadioError_t PHY_SetAttribute(RadioAttribute_t RadioAttr,uint8_t* AttrVal)`
-- BW_125kHz:\
-`RadioLoRaBandWidth_t bw = BW_125KHZ;`<br>
-`PHY_SetAttribute(BANDWIDTH, &bw);`
+`PHY_SetAttribute(SPREADING_FACTOR, (void *)&sf);`
 
 #### Get Spreading Factor
 
@@ -284,8 +277,53 @@ Following are the LoRa P2P APIs located in `phy.c` which can be used to set the 
 - `RadioDataRate_t sf;`<br>
 `PHY_GetAttribute(SPREADING_FACTOR, (void *)&sf);`
 
+#### Set Bandwidth
+
+- API: `RadioError_t PHY_SetAttribute(RadioAttribute_t RadioAttr,uint8_t* AttrVal)`
+- BW_125kHz:\
+`RadioLoRaBandWidth_t bw = BW_125KHZ;`<br>
+`PHY_SetAttribute(BANDWIDTH, (void *)&bw);`
+
+#### Get Bandwidth
+
+- API: `RadioError_t PHY_GetAttribute(RadioAttribute_t RadioAttr,uint8_t* AttrVal)`
+- `RadioLoRaBandWidth_t bw;`<br>
+`PHY_GetAttribute(BANDWIDTH, (void *)&bw);`
 
 
+#### Code snippet example
+```
+MiApp_ProtocolInit(NULL, NULL);
+
+// set RF parameters just after protocol initialization
+
+// Read and print spreading factor
+RadioDataRate_t sf ;
+PHY_GetAttribute(SPREADING_FACTOR, (void *)&sf) ;
+printf("Current SF: SF%d\r\n", sf) ;
+
+// Read and print bandwidth
+RadioLoRaBandWidth_t bw ;
+PHY_GetAttribute(BANDWIDTH, (void *)&bw) ;
+printf("Current BW: (125kHz=7, 250kHz=8, 500kHz=9) %d\r\n", bw) ;
+
+// Modify SF
+sf = SF_12 ;
+RadioError_t ret ;
+ret = PHY_SetAttribute(SPREADING_FACTOR, (void *)&sf) ;
+if (ret == ERR_NONE)
+{
+   printf("Successfully set attribute to SF%d\r\n", sf) ;
+}
+else
+{
+   printf("Error to write SF (error %d)\r\n", ret) ;
+}
+
+// Read back SF
+PHY_GetAttribute(SPREADING_FACTOR, (void *)&sf) ;
+printf("Current SF %d", sf) ;
+```
 
 
 
