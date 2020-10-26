@@ -6,16 +6,20 @@
 ## A la carte
 
 1. [Introduction](#step1)
-1. [Enable P2P Communication between end nodes](#step1)
-   1. [Overview](#step1a)
-   1. [Hardware Setup](#step1b)
-   1. [Configure the Application](#step1c)
-   1. [Run the demo](#step1d)
-1. [Enable a Network composed of end nodes and a coordinator](#step2)
+1. [Enable P2P Communication between end nodes](#step2)
    1. [Overview](#step2a)
    1. [Hardware Setup](#step2b)
    1. [Configure the Application](#step2c)
    1. [Run the demo](#step2d)
+1. [Enable a Network composed of end nodes and a coordinator](#step3)
+   1. [Overview](#step3a)
+   1. [Hardware Setup](#step3b)
+   1. [Configure the Application](#step3c)
+   1. [Run the demo](#step3d)
+1. [Enable Long-Range Communication](#step4)
+   1. [Overview](#step4a)
+   1. [Hardware Setup](#step4b)
+   1. [Configure the Application](#step4c)
 
 
 ## Introduction<a name="step1"></a>
@@ -181,6 +185,107 @@ Here, the tested setup was 3 RFDs and 1 FFD
  <p align="center">
 <img src="resources/media/setup_02_console.png" width=720>
 </p>
+
+## Enable Long-Range Communication<a name="step4"></a>
+
+### Overview<a name="step4a"></a>
+
+The SAMR34 Xplained Pro and the WLR089U0 Module Xplained Pro boards have been designed and optimized to support 868 and 915 MHz bands. WLR089U0 module is based on the ATSAMR34J18 IC.
+
+ <p align="center">
+<img src="resources/media/rfswitch_tcxo.png" width=520>
+</p>
+
+And both boards contain two essential components for the radio communication:
+- A 32 MHz TCXO (Temperature Compensated Crystal Oscillator) which is used to clock the internal RF part. This TCXO helps in reducing the variation in the central frequency due to temperature and thus improve the receiver sensitivity.
+- An RF Switch.
+
+<p align="center">
+<img src="resources/media/rf_switch.png" width=320>
+</p>
+
+The RF Switch is used to route high frequency signals through transmission path according to the V1 and V2 signals. The Xplained Pro boards support 868 MHz and 915 MHz bands and either PA_BOOST signal (high power) or RFO_HF signal (high efficiency transmitter limited to +13dBm) can be routed to the antenna. The Rx path is common for the two bands. The TX_RX signal is automatically controlled by the SAMR34’s transceiver. When transceiver is transmitting, it will drive TX_RX signal to 1 and for receive state, it will drive TX_RX signal to 0.\
+Fore more details, check out the [WLR089U0 (SAMR34 Module) Reference Design Package](https://www.microchip.com/wwwproducts/en/WLR089U0) or the [SAMR34 IC Reference Design Package](https://www.microchip.com/wwwproducts/en/ATSAMR34J18).
+
+To fully benefit from the LoRa Modulation and achieve longer range on SAMR34 device, several factors should be taken into consideration:
+- Antenna performance
+- Device positioning
+- Surrounding environment
+- Radio transceiver configuration (Tx power mode, ...)
+
+Another points to consider are the different regional spectrum allocations and regulatory requirements. These include allowed frequencies in a particular region and maximum output power.\
+e.g. up to +14dBm output power allowed by ETSI in Europe in the 867-869 MHz band\
+e.g. +20dBm output power is possible in North America in the 902-928 MHz band
+
+The [LoRa Modem Calculator Tool](https://www.semtech.com/uploads/documents/SX1272LoRaCalculatorSetup1_1.zip) is a useful tool to get a good estimation of the critical factors like time on air per frame, equivalent bitrate, RF performance characteristics and power consumption.
+
+Following are the most important range determinants.
+- Spreading Factor\
+LoRa modulation converts symbols (binary data) to chirp signals that span the frequency range. The chirp time (symbol time) is roughly proportional to 2<sup>spreading factor</sup>. Each step up in spreading factor doubles the time on air to transmit a symbol. Each unit increase in SF correlates to about 2.5dB extra link budget. Higher spreading factors are more resistant to local noise effects and will be read more reliably at the cost of lower data rate and more congestion.
+
+- Bandwidth\
+Higher bandwidth has higher data rates and is more power-efficient, but has more congestion and less range. Each doubling of the bandwidth correlates to almost 3dB less link budget.
+
+- Link Budget: this is how many dBs you can lose between the transmit PA and the receiver IF. Higher link budget directly translate to longer distance (6dB = twice distance).
+
+From software standpoint, the way to get the longest range is by maximizing the link budget. The hardware way includes better antenna and more power.
+
+It is possible to maximize the link budget by:
+- lowest possible bandwith
+- highest possible Spreading Factor
+
+Unfortunately decreasing the bandwidth increases the risk of miscommunication due to frequency drift and inaccuracy. These settings also affect the data rate.
+
+Effective Data Rate:\
+The relationship between these settings and data rate is approximately:
+Data Rate = Bandwidth / (2<sup>SF</sup>)
+
+It is a trade-off to find according to the need of the end-application.
+
+### Hardware Setup<a name="step4b"></a>
+
+Ensure the antenna orientation is the same as below to get a good range.
+
+<p align="center">
+<img src="resources/media/samr34_xpro_orientation.png" width=>
+</p>
+
+Check out the [SAMR34 Xpro and SAMR34 module (WLR089U) range measurement info](https://microchip.wikidot.com/lora:range-test-comparison-between-samr34-and-wlr089u) for more details.
+
+### Configure the Application<a name="step4c"></a>
+
+Following are the LoRa P2P APIs located in `phy.c` which can be used to set the SAM R34 or WLR089U0 devices for maximum possible range.
+
+#### Set max. Output Power
+
+- API: `void PHY_SetTxPower(uint8_t txPower)`
+- Settings for Europe: `PHY_SetTxPower(15)`
+- Settings for North America: `PHY_SetTxPower(20)`
+
+> PA boost is enabled if power is higher than 15. Check out the details of the API in the code.
+
+#### Set Spreading Factor - SF12
+
+- API: `RadioError_t PHY_SetAttribute(RadioAttribute_t RadioAttr,uint8_t* AttrVal)`
+- Set SF12:\
+`RadioDataRate_t sf = SF_12;`<br>
+`PHY_SetAttribute(SPREADING_FACTOR, &sf);`
+
+#### Set Bandwidth
+
+- API: `RadioError_t PHY_SetAttribute(RadioAttribute_t RadioAttr,uint8_t* AttrVal)`
+- BW_125kHz:\
+`RadioLoRaBandWidth_t bw = BW_125KHZ;`<br>
+`PHY_SetAttribute(BANDWIDTH, &bw);`
+
+#### Get Spreading Factor
+
+- API: `RadioError_t PHY_GetAttribute(RadioAttribute_t RadioAttr,uint8_t* AttrVal)`
+- `RadioDataRate_t sf;`<br>
+`PHY_GetAttribute(SPREADING_FACTOR, (void *)&sf);`
+
+
+
 
 
 

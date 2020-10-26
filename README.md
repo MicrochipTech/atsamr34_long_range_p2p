@@ -111,5 +111,9 @@ Start from navigating in the resources available then take a deep breath and div
       1. [Hardware Setup](03_customize/README.md#step3b)
       1. [Configure the Reference Code Example](03_customize/README.md#step3c)
       1. [Run the demo](03_customize/README.md#step3d)
+   1. [Enable Long-Range Communication](03_customize_README.md#step#step4)
+      1. [Overview](03_customize_README.md#step#step4a)
+      1. [Hardware Setup](03_customize_README.md#step#step4b)
+      1. [Configure the Application](03_customize_README.md#step#step4c)
 
 

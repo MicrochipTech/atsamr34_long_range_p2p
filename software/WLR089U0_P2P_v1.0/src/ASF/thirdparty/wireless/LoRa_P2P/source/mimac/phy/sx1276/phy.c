@@ -212,7 +212,7 @@ RadioError_t PHY_GetAttribute(RadioAttribute_t RadioAttr,uint8_t* AttrVal)
 	{
 		case SPREADING_FACTOR:
 		case BANDWIDTH:
-			Status = RADIO_GetAttr(RadioAttr,(void *)&AttrVal);
+			Status = RADIO_GetAttr(RadioAttr,AttrVal);
 			break;
 		default:
 			// Do nothing
