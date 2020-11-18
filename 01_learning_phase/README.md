@@ -454,10 +454,10 @@ Microchip LoRa P2P network is provided with features categorized as follows…
 | Description | Defines the maximum P2P connections that the device is capable at the same time |
 | ----------- | --------------------------------------- |
 | **Default Value** | 5
-| **Range** | 1 - 65535 |
+| **Range** | 1 - 255 |
 | **Memory Usage** | None |
 | **Configurable in** | `miwi_config.h` |
-| **Remarks**| |
+| **Remarks**| Tested with up to 5 devices |
 
 ### ENNABLE_HAND_SHAKE
 

@@ -8,7 +8,7 @@
 1. [Introduction](#step1)
 1. [Overview](#step2)
 1. [Supported Hardware Platforms and IDEs](#step3)
-1. [Development Envrionment Setup](#step4)
+1. [Development Environment Setup](#step4)
    1. [Atmel Studio Installation](#step4a)
    1. [Stack Configurations](#step4b)
    1. [Building Applications in Atmel Studio](#step4c)
@@ -44,7 +44,7 @@ The following table lists the supported hardware platforms and IDEs for the LoRa
 | SAMR34J18B   | SX1276 (in SIP)| SAMR34 Xplained Pro      | Atmel Studio v7.0|
 | WLR089U0     | SX1276 (in SIP)| WLR089 Xplained Pro      | Atmel Studio v7.0|
 
-## Development Envrionment Setup<a name="step4"></a>
+## Development Environment Setup<a name="step4"></a>
 
 This chapter provides instructions on how to set up the LoRa P2P software package and supported IDEs. It also describes the structure of the MiWi package, and includes references to hardware setup of the supported platforms.
 

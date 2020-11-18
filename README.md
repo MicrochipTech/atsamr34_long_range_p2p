@@ -92,7 +92,7 @@ Start from navigating in the resources available then take a deep breath and div
    1. [Introduction](02_getting_started/README.md#step1)
    1. [Overview](02_getting_started/README.md#step2)
    1. [Supported Hardware Platforms and IDEs](02_getting_started/README.md#step3)
-   1. [Development Envrionment Setup](02_getting_started/README.md#step4)
+   1. [Development Environment Setup](02_getting_started/README.md#step4)
       1. [Atmel Studio Installation](02_getting_started/README.md#step4a)
       1. [Stack Configurations](02_getting_started/README.md#step4b)
       1. [Building Applications in Atmel Studio](02_getting_started/README.md#step4c)
