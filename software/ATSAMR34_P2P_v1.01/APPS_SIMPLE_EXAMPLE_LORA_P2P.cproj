@@ -402,7 +402,7 @@
     <BootSegment>2</BootSegment>
     <eraseonlaunchrule>0</eraseonlaunchrule>
     <avrtool>com.atmel.avrdbg.tool.edbg</avrtool>
-    <avrtoolserialnumber>ATML3167051800002973</avrtoolserialnumber>
+    <avrtoolserialnumber>ATML3167051800003609</avrtoolserialnumber>
     <avrdeviceexpectedsignature>0x10810228</avrdeviceexpectedsignature>
     <avrtoolinterface>SWD</avrtoolinterface>
     <com_atmel_avrdbg_tool_edbg>
@@ -413,7 +413,7 @@
         <InterfaceName>SWD</InterfaceName>
       </ToolOptions>
       <ToolType>com.atmel.avrdbg.tool.edbg</ToolType>
-      <ToolNumber>ATML3167051800002973</ToolNumber>
+      <ToolNumber>ATML3167051800003609</ToolNumber>
       <ToolName>EDBG</ToolName>
     </com_atmel_avrdbg_tool_edbg>
     <avrtoolinterfaceclock>2000000</avrtoolinterfaceclock>
@@ -448,13 +448,19 @@
       <Value>PHY_SX1276</Value>
       <Value>PROTOCOL_P2P</Value>
       <Value>RTC_COUNT_ASYNC=true</Value>
-      <Value>SAL_TYPE=AT86RF2xx</Value>
       <Value>SPI_CALLBACK_MODE=false</Value>
       <Value>SYSTICK_MODE</Value>
       <Value>TC_ASYNC=true</Value>
       <Value>USART_CALLBACK_MODE=true</Value>
       <Value>_DEBUG_=0</Value>
       <Value>__SAMR34J18B__</Value>
+      <Value>ENABLE_PDS=0</Value>
+      <Value>RANDOM_NW_ACQ=0</Value>
+      <Value>nENABLE_SLEEP_FEATURE</Value>
+      <Value>nDUTY_CYCLING</Value>
+      <Value>EDBG_EUI_READ=1</Value>
+      <Value>MODULE_EUI_READ=0</Value>
+      <Value>nPERIODIC_TX</Value>
     </ListValues>
   </armgcc.compiler.symbols.DefSymbols>
   <armgcc.compiler.directories.IncludePaths>
@@ -523,10 +529,10 @@
       <Value>../src/ASF/thirdparty/wireless/services/common_hw_timer/sam0</Value>
       <Value>../src/ASF/thirdparty/wireless/services/edbg_eui</Value>
       <Value>../src/ASF/thirdparty/wireless/services/nvm</Value>
-      <Value>../src/ASF/thirdparty/wireless/services/sal/inc</Value>
       <Value>../src/ASF/thirdparty/wireless/services/sleep_mgr</Value>
       <Value>../src/ASF/thirdparty/wireless/services/trx_access</Value>
       <Value>../src/config</Value>
+      <Value>../src/ASF/thirdparty/wireless/lorawan/sal/inc</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize most (-O3)</armgcc.compiler.optimization.level>
@@ -550,6 +556,7 @@
     </ListValues>
   </armgcc.linker.libraries.LibrarySearchPaths>
   <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
+  <armgcc.linker.memorysettings.ExternalRAM />
   <armgcc.linker.miscellaneous.LinkerFlags>-Wl,--entry=Reset_Handler -Wl,--cref -mthumb -T../src/ASF/thirdparty/wireless/LoRa_P2P/services/pds/src/wl/linkerscripts/samr34/gcc/samr34j18b_flash.ld</armgcc.linker.miscellaneous.LinkerFlags>
   <armgcc.assembler.general.IncludePaths>
     <ListValues>
@@ -744,6 +751,9 @@
       <Value>ENABLE_PDS=0</Value>
       <Value>RANDOM_NW_ACQ=0</Value>
       <Value>NENABLE_SLEEP_FEATURE</Value>
+      <Value>EDBG_EUI_READ=1</Value>
+      <Value>MODULE_EUI_READ=0</Value>
+      <Value>PERIODIC_TX</Value>
     </ListValues>
   </armgcc.compiler.symbols.DefSymbols>
   <armgcc.compiler.directories.IncludePaths>

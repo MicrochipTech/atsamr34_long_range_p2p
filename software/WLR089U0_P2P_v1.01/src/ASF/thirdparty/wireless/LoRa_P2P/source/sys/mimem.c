@@ -90,7 +90,7 @@ void MiMem_Init(void)
 }
 
 /*********************************************************************
-* Function:         uint8_t* MiMem_Alloc(uint8_t size)
+* Function:         void* MiMem_Alloc(uint8_t size)
 *
 * PreCondition:     none
 *
@@ -105,7 +105,7 @@ void MiMem_Init(void)
 *
 * Note:			    none
 ********************************************************************/
-uint8_t* MiMem_Alloc(uint8_t size)
+void* MiMem_Alloc(uint8_t size)
 {
 	size_t requestedSize = 0U;
 	void* requestedMemPtr = NULL;

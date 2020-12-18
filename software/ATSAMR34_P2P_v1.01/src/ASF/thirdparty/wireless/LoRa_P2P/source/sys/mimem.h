@@ -43,7 +43,7 @@
 
 /************************ Prototypes ********************************/
 void MiMem_Init(void);
-uint8_t* MiMem_Alloc(uint8_t size);
+void* MiMem_Alloc(uint8_t size);
 void MiMem_Free(void* buffPtr);
 uint8_t MiMem_PercentageOfFreeBuffers(void);
 #endif

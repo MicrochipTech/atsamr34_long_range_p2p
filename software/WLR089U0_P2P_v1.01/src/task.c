@@ -36,6 +36,7 @@
 #include "miwi_api.h"
 #include "p2p_demo.h"
 #include "asf.h"
+
 #if defined(ENABLE_SLEEP_FEATURE)
 #include "sleep_mgr.h"
 #endif
@@ -47,6 +48,10 @@
 
 // Software Timer used for Tx timeout
 uint8_t TxTimerId = 0;
+
+#if defined(PERIODIC_TX)
+uint8_t PeriodicTxTimerId = 0xFF ;
+#endif
 
 /*************************************************************************/
 // AdditionalNodeID variable array defines the additional 
@@ -146,9 +151,21 @@ void Scan_Confirm(uint8_t ActiveScanResultCount, void* PtrActiveScanResults)
 static void Connection_Confirm(miwi_status_t status)
 {
 #if defined (ENABLE_CONSOLE)	
-	printf("\r\nConnect Operation Status: "); 
-	printf("%d\n",status);
-#endif // #if defined (ENABLE_CONSOLE)	
+	printf("\r\nConnect Operation Status: %d\n", status) ;
+#endif // #if defined (ENABLE_CONSOLE)
+
+    if ((SUCCESS == status) || (ALREADY_EXISTS == status))
+    {
+#if defined (ENABLE_CONSOLE)
+		printf("\r\nStarted Wireless Communication on Channel %u\r\n", currentChannel) ;
+		//DumpConnection(0xFF) ;
+#endif // #if defined (ENABLE_CONSOLE)
+
+#if defined(PERIODIC_TX)
+		SwTimerCreate(&PeriodicTxTimerId) ;
+		SwTimerStart (PeriodicTxTimerId, MS_TO_US(1000), 0/*SW_TIMEOUT_RELATIVE*/, (void *)PeriodicTxCallback, NULL) ;
+#endif // #if defined(PERIODIC_TX)
+	}
 }
 
 bool Initialize_Demo(bool freezer_enable)
@@ -160,9 +177,9 @@ bool Initialize_Demo(bool freezer_enable)
 
     MiApp_SubscribeDataIndicationCallback(ReceivedDataIndication);
 
-	#ifdef ENABLE_SLEEP_FEATURE
-		sm_init();
-	#endif
+#ifdef ENABLE_SLEEP_FEATURE
+	sm_init();
+#endif
 
     if (freezer_enable)
     {
@@ -199,9 +216,9 @@ bool Initialize_Demo(bool freezer_enable)
 			}
 		}
 		PHY_SetIEEEAddr((uint8_t *)&myLongAddress);
-        #if defined(PROTOCOL_P2P)  
-            DemoOutput_Instruction();
-        #endif
+#if defined(PROTOCOL_P2P)  
+		DemoOutput_Instruction();
+#endif
     }
     else
     {
@@ -293,14 +310,14 @@ bool Initialize_Demo(bool freezer_enable)
         MiApp_ConnectionMode(ENABLE_ALL_CONN);
         DemoOutput_Channel(myChannel, 0);
 
-		#ifdef ENABLE_ED_SCAN		
-			uint8_t *NoiseLevel;
-			MiApp_NoiseDetection(0xFFFFFFFF, 5, NOISE_DETECT_ENERGY, &NoiseLevel);
-		#endif // #ifdef ENABLE_ED_SCAN	
+#ifdef ENABLE_ED_SCAN		
+		uint8_t *NoiseLevel;
+		MiApp_NoiseDetection(0xFFFFFFFF, 5, NOISE_DETECT_ENERGY, &NoiseLevel);
+#endif // #ifdef ENABLE_ED_SCAN	
 
-		#ifdef ENABLE_ACTIVE_SCAN		
+#ifdef ENABLE_ACTIVE_SCAN		
 		MiApp_SearchConnection(5, 0xFFFFFFFF, Scan_Confirm);
-		#endif // #ifdef ENABLE_ACTIVE_SCAN
+#endif // #ifdef ENABLE_ACTIVE_SCAN
 
         /*******************************************************************/
         // Function MiApp_EstablishConnection try to establish a new 
@@ -324,7 +341,7 @@ bool Initialize_Demo(bool freezer_enable)
 		i = MiApp_EstablishConnection(myChannel, 0, (uint8_t*)&broadcastAddress, 0, Connection_Confirm);
 
         /*******************************************************************/
-        // Display current opertion on LCD of demo board, if applicable
+        // Display current operation on LCD of demo board, if applicable
         /*******************************************************************/
         if( i != 0xFF )
         {
@@ -374,24 +391,22 @@ bool Initialize_Demo(bool freezer_enable)
         //  valid Connection Entry; otherwise, the Connection Entry
         //  of the input index will be printed out.
         /*******************************************************************/
-        #if defined(ENABLE_CONSOLE)
-			DumpConnection(0xFF);
-        #endif
+#if defined(ENABLE_CONSOLE)
+		DumpConnection(0xFF);
+#endif
 
         // Turn on LED 1 to indicate connection established
 		LED_On(LED0);
-        #if defined(PROTOCOL_P2P)
-            DemoOutput_Instruction();
-        #endif    
-
+#if defined(PROTOCOL_P2P)
+        DemoOutput_Instruction();
+#endif    
     }
 	
 	/* Create SW timer for transmission timeout */
-	SwTimerCreate(&TxTimerId);
+	SwTimerCreate(&TxTimerId) ;
 	
 	return true;
 }
-
 
 void Run_Demo(void)
 {

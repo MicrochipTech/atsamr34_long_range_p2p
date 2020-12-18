@@ -88,11 +88,8 @@ miwi_status_t dataStatus;
 uint8_t dataHandle = 0;
 uint8_t* dataPointer = NULL;
 uint8_t MACdataPayloadLen = 0;
-//MAC_TRANS_PARAM MACdatatransParam = 0;
 MAC_TRANS_PARAM MACdatatransParam;
 DataConf_callback_t dataConfCallback = NULL;
-
-
 /************************************************************************************
  * Function:
  *      bool MiMAC_SetAltAddress(uint8_t *Address, uint8_t *PANID)
@@ -649,7 +646,6 @@ bool MiMAC_SendPacket( MAC_TRANS_PARAM transParam,
     uint8_t headerLength;
     uint8_t loc = 0;
     uint8_t i = 0;
-
 	uint8_t frameControl = 0;
 	dataConfAvailable = false;
 	#ifndef TARGET_SMALL

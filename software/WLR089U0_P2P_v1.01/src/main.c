@@ -72,10 +72,14 @@ int main ( void )
 	sio2host_init();
 #endif
 	
-	// Read the MAC address from either flash or EDBG
+	// Permanent address for the device is set in miwi_config.h and loaded in global variable myLongAddress
+	// Define SYMBOL MACRO to populate myLongAddress from EDBG_EUI or from MODULE_EUI
+#if (EDBG_EUI_READ == 1 || MODULE_EUI_READ == 1)
 	ReadMacAddress(); 
+#endif
 
 	SystemTimerInit();
+
     // Demo Start Message 
     DemoOutput_Greeting();	
 
@@ -95,7 +99,7 @@ int main ( void )
     
 	/* Initialize demo application */
     Stack_Init();
-	
+
     while(1)
     {
 		SYSTEM_RunTasks();
@@ -119,8 +123,8 @@ SYSTEM_TaskStatus_t APP_TaskHandler(void)
 *
 * Input:		    none
 *
-* Output:		    Reads MAC Address from EDBG or from internal Flash
-*
+* Output:		    Reads MAC Address from SAM R34 XPRO EDBG or from 
+*					WLR089U0 Internal Flash
 * Side Effects:	    none
 *
 * Overview:		    Uses the MAC Address for addressing
@@ -130,12 +134,14 @@ SYSTEM_TaskStatus_t APP_TaskHandler(void)
 void ReadMacAddress(void)
 {
 #if (BOARD == SAMR34_XPLAINED_PRO && defined(__SAMR34J18B__))
+	// only applicable for SAM R34 Xpro with EDBG on-board
 	uint8_t* peui64 = edbg_eui_read_eui64() ;
 	for (uint8_t i = 0; i < MY_ADDRESS_LENGTH; i++)
 	{
 		myLongAddress[i] = peui64[MY_ADDRESS_LENGTH-i-1] ;
 	}
-#elif (BOARD == WLR089_XPLAINED_PRO && defined(__WLR089U0__))
+#elif (defined(__WLR089U0__))
+	// applicable for module with WLR089 Xpro board or custom board
 	#define NVM_UID_ADDRESS   ((volatile uint16_t *)(0x0080400AU))
 	uint8_t i = 0, j = 0 ;
 	uint8_t peui64[8] ;

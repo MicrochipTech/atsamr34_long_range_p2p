@@ -4,6 +4,7 @@ LoRa P2P revision history:
 1.01	Release based on MLS_1_0_5
 		Fixed PHY_SetTxPower() API
 		Fixed calculate_ToA() API
+1.02	Fixed symbols and directories for Release configuration
 
 
 

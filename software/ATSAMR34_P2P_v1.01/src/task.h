@@ -114,5 +114,9 @@ bool Time_out(MIWI_TICK, MIWI_TICK , uint8_t);
 
 extern uint8_t TxTimerId;
 
+#if defined(PERIODIC_TX)
+extern uint8_t PeriodicTxTimerId ;
+#endif
+
 #endif	/* TASK_H */
 

@@ -41,12 +41,11 @@
 *****************************************************************************/
 static void placeTimer(SYS_Timer_t *timer);
 static void SYS_HwExpiry_Cb(void);
-//static void SYS_HwOverflow_Cb(void);
 void SYS_HwOverflow_Cb(void);
 
 /*- Variables --------------------------------------------------------------*/
 static SYS_Timer_t *timers;
-volatile uint8_t SysTimerIrqCount;
+volatile uint32_t SysTimerIrqCount;
 
 volatile uint8_t timerExtension1,timerExtension2;
 
@@ -117,7 +116,7 @@ bool SYS_TimerStarted(SYS_Timer_t *timer)
 void SYS_TimerTaskHandler(void)
 {
 	uint32_t elapsed;
-	uint8_t cnt;
+	uint32_t cnt;
 	irqflags_t flags;
 
 	if (0 == SysTimerIrqCount) {
@@ -281,7 +280,6 @@ static void SYS_HwExpiry_Cb(void)
 	common_tc_delay(SYS_TIMER_INTERVAL * MS);
 }
 
-//static void SYS_HwOverflow_Cb(void)
 void SYS_HwOverflow_Cb(void)
 {
 	timerExtension1++;
@@ -291,6 +289,23 @@ void SYS_HwOverflow_Cb(void)
 	}
 }
 
+/*********************************************************************
+* Function:         void SYS_TimerAdjust_SleptTime
+*
+* PreCondition:     none
+*
+* Input:		    sleeptime  - Total time slept by Application in  
+*                                milliseconds
+*
+* Output:		    none
+*
+* Side Effects:	    none
+*
+* Overview:		    This function adjusts the duration for which
+*                   application slept and correct the timers
+*
+* Note:			    none
+********************************************************************/
 void SYS_TimerAdjust_SleptTime(uint32_t sleeptime)
 {
 	SYS_Timer_t* timer = timers;
@@ -308,10 +323,42 @@ void SYS_TimerAdjust_SleptTime(uint32_t sleeptime)
 		timer = timer->next;
 	}
     /* Stop and Start Timers */
-	common_tc_overflow_stop();
-	common_tc_compare_stop();
+    common_tc_overflow_stop();
+    common_tc_compare_stop();
     set_common_tc_overflow_callback(SYS_HwOverflow_Cb);
     set_common_tc_expiry_callback(SYS_HwExpiry_Cb);
     common_tc_init();
     common_tc_delay(SYS_TIMER_INTERVAL * MS);
+}
+
+/*********************************************************************
+* Function:         uint32_t SYS_TimerRemainingTimeout
+*
+* PreCondition:     none
+*
+* Input:		    SYS_Timer_t *timer  - Timer for which the 
+*                                         remaining timeout is required
+*
+* Output:		    uint32_t - Total remaining timeout
+*
+* Side Effects:	    none
+*
+* Overview:		    This function returns total timeout for the requested
+*                   timer to expire by traversing through the list
+*
+* Note:			    none
+********************************************************************/
+uint32_t SYS_TimerRemainingTimeout(struct SYS_Timer_t *timer)
+{
+	uint32_t remainingTime = 0;
+	SYS_Timer_t *currTimer = timers;
+	while (currTimer){
+		remainingTime += currTimer->timeout;
+		if (currTimer == timer)
+		{
+			return remainingTime;
+		}
+		currTimer = currTimer->next;
+	}
+	return 0;
 }
