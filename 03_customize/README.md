@@ -20,7 +20,14 @@
    1. [Overview](#step4a)
    1. [Hardware Setup](#step4b)
    1. [Configure the Application](#step4c)
-
+1. [Enable Periodic transmission](#step5)
+   1. [Overview](#step5a)
+   1. [Configure the Application](#step5b)
+1. [Enable Regulations Features](#step6)
+   1. [Overview](#step6a)
+   1. [Configure the Application](#step6b)
+   1. [Run the demo](#step6c)
+   1. [Limitations](#step6d)
 
 ## Introduction<a name="step1"></a>
 
@@ -165,17 +172,16 @@ Here, the tested setup was 3 RFDs and 1 FFD
 
 - For all the 3 RFDs, perform the following steps:
    - Include  the `ENABLE_SLEEP_FEATURE` symbol in **Project Properties -> Toolchain -> ARM/GNU C Compiler -> Symbol**
-   - Open the file `p2p_demo.c` and go to line 273
+   - Open the file `p2p_demo.c` and go to line 190
    - Instead of waking-up the device and sending a Data Request to parent device, let's modify the code to transmit an application payload periodically to FFD
-   - Comment the line `MiApp_TransceiverPowerState(POWER_STATE_WAKEUP_DR);` and replace by the following snippet of code:
-   
+   - Set the power state mode to `POWER_STATE_WAKEUP`.
    ```
-   /* Wakeup the transceiver and send data periodically (every RFD_WAKEUP_INTERVAL) */
-	MiApp_TransceiverPowerState(POWER_STATE_WAKEUP);
-	p2p_demo_unicast_to_parent() ;
+  uint8_t power_state_mode = POWER_STATE_WAKEUP_DR ;
    ```
+   - With the above configuration, the application will wake up and transmit application payload every `RFD_WAKEUP_INTERVAL`
    - Open file `miwi_config.h` and configure all devices with same PAN identifier
-   - Compile and program the code into the different boards
+   - Change `RFD_WAKEUP_INTERVAL` in `miwi_config.h` if required
+   - Compile and program the code into the different RFD boards
 
 ### Run the demo<a name="step3d"></a>
 
@@ -325,7 +331,155 @@ PHY_GetAttribute(SPREADING_FACTOR, (void *)&sf) ;
 printf("Current SF %d", sf) ;
 ```
 
+## Enable Periodic transmission<a name="step5"></a>
 
+### Overview<a name="step5a"></a>
+
+Enable periodic transmission for Full-functional device.
+
+### Configure the Application<a name="step5b"></a>
+
+- Set  the `PERIODIC_TX` symbol in **Project Properties -> Toolchain -> ARM/GNU C Compiler -> Symbol**
+
+- Open file `task.h` and set the desired interval
+
+```
+#define INITIAL_DATA_SENDING_INTERVAL_MS	2000
+#define DATA_SENDING_INTERVAL_MS			   20000
+```
+
+- Open file `p2p_demo.c` to find the data to transmit
+
+```
+/* Payload size for data sent out using periodic transmission */
+#define PAYLOAD_SIZE 40		// stay below MAX_SEC_UCAST_PAYLOAD
+/* Payload for data sent out using periodic transmission */
+#define PAYLOAD      "HelloWorldHelloWorldHelloWorldHelloWorld"
+```
+
+## Enable Regulations Features<a name="step6"></a>
+
+### Overview<a name="step6a"></a>
+
+**LoRa P2P is operating with a single frequency channel.**
+
+#### **FCC Regulations**
+
+There are no duty cycle limitations imposed by the FCC but there is a 400 ms max dwell time per channel. Dwell time is occupancy limit for frequency hopping radio technics only. Frequency hopping is not implemented in LoRa P2P. In LoRa modulation using single channel in a bandwidth of 125kHz with no frequency hopping mechanism, to be compliant we FCC regulations, the LoRa P2P protocol must bound by the 500 kHz bandwidth with a limitation of 1W (+30 dBm).
+
+> References:
+> - https://www.law.cornell.edu/cfr/text/47/15.247
+> - https://www.govinfo.gov/content/pkg/CFR-2010-title47-vol1/pdf/CFR-2010-title47-vol1-sec15-247.pdf
+>
+> (2) Systems using digital modulation techniques may operate in the 902-928 MHz, 2400-2483.5 MHz, and 5725-5850 MHz bands. The minimum 6 dB bandwidth shall be at least 500 kHz.\
+(i) For frequency hopping systems operating in the 902-928 MHz band: if the 20 dB bandwidth of the hopping channel is less than 250 kHz, the system shall use at least 50 hopping frequencies and the average time of occupancy on any frequency shall not be greater than 0.4 seconds within a 20 second period; if the 20 dB bandwidth of the hopping channel is 250 kHz or greater, the system shall use at least 25 hopping frequencies and the average time of occupancy on any frequency shall not be greater than 0.4 seconds within a 10 second period. The maximum allowed 20 dB bandwidth of the hopping channel is 500 kHz.
+
+<br>
+
+#### **Duty Cycling**
+
+The duty cycling is a limitation in the Sub-GHz band. Duty cycle is defined as the ratio, expressed as a percentage, of a maximum transmitter "on" time within a 1 hour period.
+
+Europe (863-870 MHz frequency band), Russia (864-870MHz band) and Asia (923 MHz band) are regions where duty cycle regulation is applied.
+
+For Europe region, the ETSI regulation allows the choice of using either a duty-cycle limitation mechanism or a polite spectrum access. The polite spectrum access encompasses 2 aspects: Listen Before Talk (LBT) and Adaptive Frequency Agility (AFA). In case polite spectrum access is available, then the duty cycle requirement need NOT be met.
+
+The duty cycle of radio devices is often regulated by government. Depending of the region and the frequency radio band, but the duty cycle value can be 0.1%, 1% or 10%.
+
+In Europe, duty cycles are regulated in the [ETSI EN 300 220-2 v3.2.1 (2018-06) standard](https://www.etsi.org/deliver/etsi_en/300200_300299/30022002/03.02.01_60/en_30022002v030201p.pdf). This standards defines the following sub-bands and their duty cycle values:
+
+<p align="center">
+<img src="resources/media/etsi_table.png" width=520>
+</p>
+
+- g (863.0 – 868.0 MHz): 1% 25mW (14dBm)
+- g1 (868.0 – 868.6 MHz): 1% 25mW (14dBm)
+- g2 (868.7 – 869.2 MHz): 0.1% 25mW (14dBm)
+- g3 (869.4 – 869.65 MHz): 10% 500mW (27dBm)
+- g4 (869.7 – 870.0 MHz): 1% 25mW (14dBm)
+
+To match the local regulations, the end device transmit duty-cycle SHALL be lower than the x% of a particular sub-band. That means the end device cannot occupy the selected band more than a certain amount of time. The duty-cycle is also here to avoid network congestion.
+
+Every radio device must comply with the regulated duty cycle limits. The duty cycle at the operating frequency shall not be greater than regulated values for the chosen operational frequency band. And this is true either the radio is using frequency hopping mechanism or not.
+
+The [WLR089U0 Module](https://www.microchip.com/wwwproducts/en/WLR089U0) has been certified using duty cycle test procedure in the limit of 1% for the 868.5 MHz frequency. The cumulative transmissions time for the device cannot exceed 36 seconds within an hour. The device does not support polite spectrum access function.\
+Checkout the [EN 300 220 Test report](https://ww1.microchip.com/downloads/en/DeviceDoc/WLR089U0_Module_Regulatory_Approval_Document_RevB.zip).
+
+That is the motivation to enable a simple duty cycling implementation to the LoRa P2P application code.
+
+### Configure the Application<a name="step6b"></a>
+
+#### Set the Bandwidth
+
+Set RF parameters just after protocol initialization
+
+```
+MiApp_ProtocolInit(NULL, NULL) ;
+// Read and print bandwidth
+RadioLoRaBandWidth_t bw ;
+PHY_GetAttribute(BANDWIDTH, (void *)&bw) ;
+printf("Current BW (125kHz=7, 250kHz=8, 500kHz=9): %d\r\n", bw) ;
+// Set the desired bandwidth (e.g.: 125 kHz)
+bw = BW_125KHZ ;
+PHY_SetAttribute(BANDWIDTH, (void *)&bw) ;
+```
+
+#### Set the operational frequency
+
+Make sure to disable the energy scan features in `miwi_config.h`
+```
+/*********************************************************************/
+// ENABLE_ED_SCAN will enable the device to do an energy detection scan
+// to find out the channel with least noise and operate on that channel
+/*********************************************************************/
+//#define ENABLE_ED_SCAN
+```
+
+Set the desired channel in `task.c` populating the variable `myChannel`:
+```
+uint8_t myChannel = 5 ;
+```
+
+The application is setting the channel when calling the API `MiApp_Set(CHANNEL, &myChannel)`.
+
+Then, the function `phySetChannel()` is called to set the frequency for radio operations according to the value of the channel.
+
+| Channel | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 |
+| ------- | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - |
+| Frequency (MHz) | 862 | 863 | 865 | 866.55 | 867 | 868.1 | 869.525 | 870 | 902.3 | 903 | 915 | 915.2 | 915.9 | 920 | 920.9 | 921.9 | 922 | 922.1 | 923 | 923.2 | 923.3 | 925 | 927.5 | 928 | 928.5 | 1020 |
+
+#### Enable Duty Cycling
+
+- Set  the `DUTY_CYCLING` symbol in **Project Properties -> Toolchain -> ARM/GNU C Compiler -> Symbol**
+
+- For the channel selected, duty cycling percentage is configured in `p2p_demo.c`
+```
+/* Duty cycling percentage - range : 1 to 99 */
+#define dutyCyclePercentage				1
+```
+
+### Run the demo<a name="step6c"></a>
+
+- When connected to a pan coordinator, issue a broadcast or unicast transmission from the end device with duty cycling enabled
+
+- If there is no remaining duty cycling duration to wait, the payload is transmitted to the parent device (the application stores the size of the payload to transmit)
+
+- In the transmission callback handler `dataConfcb`, the applications starts by caculating the time on air according to the size of the payload transmitted
+- Then the duty cycling duration is calculated with:\
+`dutyCyclingDurationMilliSec = ((100 - dutyCyclePercentage) * (timeOnAirMilliSec * txCount))` where `txCount` value is one frame if the packet was acknowledged successfully
+- The duty cycling timer is started to authorize new transmission after `dutyCyclingDurationMilliSec` (here: 33957 ms)
+- If a new transmission is requested prior the duty cycling timer expiration, `NO_FREE_CH` indication is displayed and no message is leaving from the device
+
+<p align="center">
+<img src="resources/media/run_duty_cycling_01.png" width=720>
+</p>
+
+### Limitations<a name="step6d"></a>
+
+- In this sample application, Duty cycling has been implemented for the End Device role only
+- Duty cycling is performed on applicative payload transmission from end-device to coordinator
+- Duty cycling is not implemented for ACK packets
+- Time on air calculation API: `calculate_ToA()` (defined in file `miwi_p2p.c`) which is based on payload size has been tested with EU868 channel plan, SF = 7 to 12 and BW = 125 kHz
 
 <a href="#top">Back to top</a>
 
