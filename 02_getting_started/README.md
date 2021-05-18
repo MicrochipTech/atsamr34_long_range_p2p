@@ -9,9 +9,9 @@
 1. [Overview](#step2)
 1. [Supported Hardware Platforms and IDEs](#step3)
 1. [Development Environment Setup](#step4)
-   1. [Atmel Studio Installation](#step4a)
+   1. [Microchip Studio Installation](#step4a)
    1. [Stack Configurations](#step4b)
-   1. [Building Applications in Atmel Studio](#step4c)
+   1. [Building Applications in Microchip Studio](#step4c)
 1. [Hardware Environment Setup](#step5)
 1. [Out-of-box Demo Application](#step6)
 
@@ -41,24 +41,24 @@ The following table lists the supported hardware platforms and IDEs for the LoRa
 
 | Device       | RF Transceiver | Supported Evaluation Kit | Supported IDEs   |
 | ------------ | -------------- | ------------------------ | ---------------- |
-| SAMR34J18B   | SX1276 (in SIP)| SAMR34 Xplained Pro      | Atmel Studio v7.0|
-| WLR089U0     | SX1276 (in SIP)| WLR089 Xplained Pro      | Atmel Studio v7.0|
+| SAMR34J18B   | SX1276 (in SIP)| SAMR34 Xplained Pro      | Microchip Studio v7.0|
+| WLR089U0     | SX1276 (in SIP)| WLR089 Xplained Pro      | Microchip Studio v7.0|
 
 ## Development Environment Setup<a name="step4"></a>
 
 This chapter provides instructions on how to set up the LoRa P2P software package and supported IDEs. It also describes the structure of the MiWi package, and includes references to hardware setup of the supported platforms.
 
-### Atmel Studio Installation<a name="step4a"></a>
+### Microchip Studio Installation<a name="step4a"></a>
 
-The Atmel Studio can be used to develop and debug applications for AVR- and ARM-based platforms. Atmel Studio is equipped with the GCC compiler and does not require any additional external tools to compile and debug LoRa P2P application.
+Microchip Studio can be used to develop and debug applications for AVR- and ARM-based platforms. Microchip Studio is equipped with the GCC compiler and does not require any additional external tools to compile and debug LoRa P2P application.
 
-Perform the following steps to install the Atmel Studio.
-1. [Download](https://www.microchip.com/mplab/avr-support/atmel-studio-7) and install the latest Atmel Studio version, if not already installed on your PC.
-2. Add path to the folder containing the ARM GCC compiler to the Path Windows environment variable. The compiler is located in the `\Atmel\Studio\7.0\toolchain\arm\arm-gnu- toolchain\arm-none-eabi\bin` directory of the Atmel Studio installation directory.\
+Perform the following steps to install the Microchip Studio.
+1. [Download](https://www.microchip.com/mplab/microchip-studio)) and install the latest Microchip Studio version, if not already installed on your PC.
+2. Add path to the folder containing the ARM GCC compiler to the Path Windows environment variable. The compiler is located in the `\Atmel\Studio\7.0\toolchain\arm\arm-gnu- toolchain\arm-none-eabi\bin` directory of the Microchip Studio installation directory.\
 This step is necessary for command line compilation (with makefiles).
-3. Install latest ASFv3 as an extension to Atmel Studio from: **Tools -> Extensions and updates**
+3. Install latest ASFv3 as an extension to Microchip Studio from: **Tools -> Extensions and updates**
 4. Install the Device Part Pack for developing with SAMR34/R35 or WLR089U0 from: **Tools -> Device Pack Manager -> Search for** SAMR34 and/or WLR089 and click install
-5. Restart Atmel Studio 7.0 IDE
+5. Restart Microchip Studio 7.0 IDE
 
 ### Stack Configurations<a name="step4b"></a>
 
@@ -79,12 +79,12 @@ Default data rate setting is 5 (equivalent to Spreading Factor SF7), default ban
 
 By default, PA_Boost is disabled and Transmit Output Power is set to +1dBm. The API `PHY_SetTxPower` can be used to set the Tx power and the PA_Boost will be set accordingly.
 
-### Building Applications in Atmel Studio<a name="step4c"></a>
+### Building Applications in Microchip Studio<a name="step4c"></a>
 
-Atmel Studio can be used to develop and build LoRa P2P application. Reference applications include Atmel Studio project files located in the `\as5_arm` subdirectory of the application root directory. These projects depend on the configurations provided by the external low-level makefiles.
+Microchip Studio can be used to develop and build LoRa P2P application. Reference applications include Microchip Studio project files located in the `\as5_arm` subdirectory of the application root directory. These projects depend on the configurations provided by the external low-level makefiles.
 
 Perform the following steps to open a project:
-- Open Atmel Studio
+- Open Microchip Studio
 - Choose **File -> Open -> Project**
 - Select **APPS_SIMPLE_EXAMPLE_LORA_P2P** Application project
 
