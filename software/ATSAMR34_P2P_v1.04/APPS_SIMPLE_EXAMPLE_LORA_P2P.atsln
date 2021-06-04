@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "APPS_SIMPLE_EXAMPLE_LORA_P2P", "APPS_SIMPLE_EXAMPLE_LORA_P2P.cproj", "{FEC441E7-177D-317E-ABE9-48EAD07D1331}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Release|ARM = Release|ARM
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FEC441E7-177D-317E-ABE9-48EAD07D1331}.Debug|ARM.ActiveCfg = Debug|ARM
+		{FEC441E7-177D-317E-ABE9-48EAD07D1331}.Debug|ARM.Build.0 = Debug|ARM
+		{FEC441E7-177D-317E-ABE9-48EAD07D1331}.Release|ARM.ActiveCfg = Release|ARM
+		{FEC441E7-177D-317E-ABE9-48EAD07D1331}.Release|ARM.Build.0 = Release|ARM
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
