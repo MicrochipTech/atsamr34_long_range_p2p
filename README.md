@@ -1,4 +1,6 @@
 # ATSAMR34_LONG_RANGE_P2P
+<img src="resources/media/IoT-Made-Easy-Logo.png" width=100>
+
 > "Wireless Made Easy!" - Enable Easy to use P2P Protocol for Long-Range & Low Power Applications on SAM R34 LoRa Technology ICs and WLR089U0 Module
 
 Devices: | **ATSAMR34 | WLR089U0**
