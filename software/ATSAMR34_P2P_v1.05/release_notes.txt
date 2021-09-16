@@ -1,0 +1,16 @@
+LoRa P2P revision history:
+
+1.00	Initial release based on MLS_1_0_1
+1.01	Release based on MLS_1_0_5
+		Fixed PHY_SetTxPower() API
+		Fixed calculate_ToA() API
+1.02	Fixed symbols and directories for Release configuration
+1.03	Fixed Listen Before Talk - (use LBT_SUPPORT_ENABLED MACRO to enable LBT)
+1.04	Fixed issue where FFD device was unable to receive DATA_REQUEST_COMMAND packet from RFD after device is resetted and network is restored using NETWORK_FREEZER feature
+		Fixed issue where periodic Tx is not happening after device is resetted and network is restored using NETWORK_FREEZER functionality
+1.05	Fixed security vulnerability in mimac.c (MiWi v6.5 -> MiWi v6.6)
+
+		
+
+
+
