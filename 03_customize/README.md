@@ -176,7 +176,7 @@ Here, the tested setup was 3 RFDs and 1 FFD
    - Instead of waking-up the device and sending a Data Request to parent device, let's modify the code to transmit an application payload periodically to FFD
    - Set the power state mode to `POWER_STATE_WAKEUP`.
    ```
-  uint8_t power_state_mode = POWER_STATE_WAKEUP_DR ;
+  uint8_t power_state_mode = POWER_STATE_WAKEUP ;
    ```
    - With the above configuration, the application will wake up and transmit application payload every `RFD_WAKEUP_INTERVAL`
    - Open file `miwi_config.h` and configure all devices with same PAN identifier
