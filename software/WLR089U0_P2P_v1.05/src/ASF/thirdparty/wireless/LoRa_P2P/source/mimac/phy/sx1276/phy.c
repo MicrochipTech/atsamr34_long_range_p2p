@@ -294,8 +294,8 @@ void radioCallback(RadioCallbackID_t callback, void *param)
 					}
 				}
 					callbackRx = (RadioCallbackParam_t *)param;
-
-						
+				// Check if RxBank value is valid and not 'all buffer slots full' aka 0xFF
+				if (RxBank < BANK_SIZE) { //Keep indentation of code below, to minimize git check-in diff size 
 				RxBuffer[RxBank].PayloadLen = callbackRx->RX.bufferLength;
 				if (RxBuffer[RxBank].PayloadLen < (RX_PACKET_SIZE - 4))			
 				{
@@ -324,6 +324,7 @@ void radioCallback(RadioCallbackID_t callback, void *param)
 					RadioReceiveParam.rxWindowSize = 0;
 					RADIO_Receive(&RadioReceiveParam);	
 				}
+                                } //End of check for valid RxBank value
 		break;
 		case RADIO_RX_ERROR_CALLBACK:
 				RadioReceiveParam.action = RECEIVE_START;
